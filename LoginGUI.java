@@ -53,9 +53,10 @@ public class LoginGUI extends JFrame {
 
         // Panel for buttons
         JPanel btnPanel = new JPanel();
-        btnPanel.setLayout(new GridLayout(1, 2, 5, 5));
+        btnPanel.setLayout(new GridLayout(8, 8, 5, 5));
         btnPanel.add(btnLogin);
         btnPanel.add(btnCA);
+        btnPanel.setBackground(new Color(173, 216, 230));
 
         JPanel panel_one = new JPanel();
         panel_one.setLayout(new BorderLayout());
