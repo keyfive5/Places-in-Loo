@@ -23,7 +23,9 @@ public class LoginGUI extends JFrame {
         panel_two.add(tfpassword);
 
         // Places in 'Loo Label
-        places = new JLabel();
+        places = new JLabel("Places-in-Loo Login Page");
+        places.setFont(new Font("Calibri", Font.BOLD, 45));
+
 
         // Buttons
         JButton btnLogin = new JButton("Login");
@@ -53,7 +55,7 @@ public class LoginGUI extends JFrame {
 
         // Panel for buttons
         JPanel btnPanel = new JPanel();
-        btnPanel.setLayout(new GridLayout(8, 8, 5, 5));
+        btnPanel.setLayout(new GridLayout(7, 7, 5, 5));
         btnPanel.add(btnLogin);
         btnPanel.add(btnCA);
         btnPanel.setBackground(new Color(173, 216, 230));
@@ -61,9 +63,10 @@ public class LoginGUI extends JFrame {
         JPanel panel_one = new JPanel();
         panel_one.setLayout(new BorderLayout());
         panel_one.setBackground(new Color(173, 216, 230));
-        panel_one.add(panel_two, BorderLayout.NORTH);
-        panel_one.add(places, BorderLayout.CENTER);
+        panel_one.add(panel_two, BorderLayout.CENTER);
+        panel_one.add(places, BorderLayout.PAGE_START);
         panel_one.add(btnPanel, BorderLayout.SOUTH);
+       
 
         add(panel_one);
 
