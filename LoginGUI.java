@@ -15,6 +15,7 @@ public class LoginGUI extends JFrame {
         JLabel password_label = new JLabel("Password");
         tfpassword = new JTextField();
 
+        // Panel 2 is for the buttons and text fields
         JPanel panel_two = new JPanel();
         panel_two.setLayout(new GridLayout(4, 1, 5, 5));
         panel_two.add(username_label);
@@ -60,6 +61,7 @@ public class LoginGUI extends JFrame {
         btnPanel.add(btnCA);
         btnPanel.setBackground(new Color(173, 216, 230));
 
+        // Main panel
         JPanel panel_one = new JPanel();
         panel_one.setLayout(new BorderLayout());
         panel_one.setBackground(new Color(173, 216, 230));
