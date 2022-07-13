@@ -1,2 +1,3 @@
 # Places-in-Loo
-Hasan (MZ), Kabir, Shahyan (MK), Faisal, Jack, Jackson
+Hasan (MZ), Kabir, Shahyan (MK), Faisal (MN), Jack, Jackson, Nabeel
+
