@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import MainMenu
+
 
 public class LoginGUI extends JFrame {
     JTextField tfusername, tfpassword;
