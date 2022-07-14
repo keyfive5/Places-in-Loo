@@ -3,6 +3,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+
 public class CreateAccount extends JFrame {
     JTextField username, password, email, first_name, last_name, gender, campus, date_of_birth;
     JLabel ca;
@@ -95,5 +96,11 @@ public class CreateAccount extends JFrame {
     public static void main(String[] args) {
         CreateAccount ca = new CreateAccount();
         ca.init();
+    }
+
+    public static void call_create_acct(){
+        CreateAccount ca = new CreateAccount();
+        ca.init();
+
     }
 }

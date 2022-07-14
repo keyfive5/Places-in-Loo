@@ -1,2 +1,1 @@
-
-        panel_one.add(ca, BorderLayout.PAGE_START);
+call_create_acct

@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
+
 public class LoginGUI extends JFrame {
     JTextField tfusername;
     JPasswordField tfpassword;
@@ -54,8 +55,8 @@ public class LoginGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 // Move to Create Account Page
-                
-
+                CreateAccount.call_create_acct ();
+                setVisible(false);
             }
         });
 
