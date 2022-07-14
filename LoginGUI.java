@@ -4,7 +4,8 @@ import javax.swing.*;
 
 
 public class LoginGUI extends JFrame {
-    JTextField tfusername, tfpassword;
+    JTextField tfusername;
+    JPasswordField tfpassword;
     JLabel places;
 
     // Initializing the LoginGUI
@@ -14,11 +15,12 @@ public class LoginGUI extends JFrame {
         JLabel username_label = new JLabel("Username");
         tfusername = new JTextField();
         JLabel password_label = new JLabel("Password");
-        tfpassword = new JTextField();
+        tfpassword = new JPasswordField();
 
         // Panel 2 is for the buttons and text fields
         JPanel panel_two = new JPanel();
         panel_two.setLayout(new GridLayout(4, 1, 5, 5));
+        panel_two.setBackground(new Color(173, 216, 230));
         panel_two.add(username_label);
         panel_two.add(tfusername);
         panel_two.add(password_label);
@@ -27,6 +29,7 @@ public class LoginGUI extends JFrame {
         // Places in 'Loo Label
         places = new JLabel("Places-in-Loo Login Page");
         places.setFont(new Font("Calibri", Font.BOLD, 45));
+        places.setHorizontalAlignment(JLabel.CENTER);
 
 
         // Buttons
