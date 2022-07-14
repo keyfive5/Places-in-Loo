@@ -37,13 +37,21 @@ public class CreateAccount extends JFrame {
         // Panel with labels and text fields
         JPanel panel_two = new JPanel();
         panel_two.add(username_label);
+        panel_two.add(username);
         panel_two.add(password_label);
+        panel_two.add(password);
         panel_two.add(email_label);
+        panel_two.add(email);
         panel_two.add(first_name_label);
+        panel_two.add(first_name);
         panel_two.add(last_name_label);
+        panel_two.add(last_name);
         panel_two.add(gender_label);
+        panel_two.add(gender);
         panel_two.add(campus_label);
+        panel_two.add(campus);
         panel_two.add(date_of_birth_label);
+        panel_two.add(date_of_birth);
 
         // Places in 'Loo Label
         ca = new JLabel("Create Account");
