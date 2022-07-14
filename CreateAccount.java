@@ -6,36 +6,46 @@ import javax.swing.*;
 public class CreateAccount extends JFrame {
     JTextField username, password, email, first_name, last_name, gender, campus, date_of_birth;
     JLabel ca;
+    JButton submit_btn;
 
     // Intialize
     public void init() {
         // Labels and Text Fields
         JLabel username_label = new JLabel("Username");
-        username = new JTextField();
+        username_label.setHorizontalAlignment(JLabel.CENTER);
+        username = new JTextField("Enter username here");
 
         JLabel password_label = new JLabel("Password");
-        password = new JTextField();
+        password_label.setHorizontalAlignment(JLabel.CENTER);
+        password = new JTextField("Enter password here");
 
         JLabel email_label = new JLabel("Email");
-        email = new JTextField();
+        email_label.setHorizontalAlignment(JLabel.CENTER);
+        email = new JTextField("Enter email here");
 
         JLabel first_name_label = new JLabel("First Name");
-        first_name = new JTextField();
+        first_name_label.setHorizontalAlignment(JLabel.CENTER);
+        first_name = new JTextField("Enter first name here");
 
         JLabel last_name_label = new JLabel("Last Name");
-        last_name = new JTextField();
+        last_name_label.setHorizontalAlignment(JLabel.CENTER);
+        last_name = new JTextField("Enter last name here");
 
         JLabel gender_label = new JLabel("Gender");
-        gender = new JTextField();
+        gender_label.setHorizontalAlignment(JLabel.CENTER);
+        gender = new JTextField("Enter gender here");
 
         JLabel campus_label = new JLabel("Campus");
-        campus = new JTextField();
+        campus_label.setHorizontalAlignment(JLabel.CENTER);
+        campus = new JTextField("Enter campus here");
 
         JLabel date_of_birth_label = new JLabel("Date of Birth");
-        date_of_birth = new JTextField();
+        date_of_birth_label.setHorizontalAlignment(JLabel.CENTER);
+        date_of_birth = new JTextField("Enter date of birth here");
 
         // Panel with labels and text fields
-        JPanel panel_two = new JPanel();
+        JPanel panel_two = new JPanel(new GridLayout(9,2,5,5));
+        panel_two.setBackground(new Color(173, 216, 230));
         panel_two.add(username_label);
         panel_two.add(username);
         panel_two.add(password_label);
@@ -55,7 +65,14 @@ public class CreateAccount extends JFrame {
 
         // Places in 'Loo Label
         ca = new JLabel("Create Account");
+        ca.setHorizontalAlignment(JLabel.CENTER);
         ca.setFont(new Font("Calibri", Font.BOLD, 45));
+
+        // submit button 
+
+        submit_btn = new JButton("Submit");
+        panel_two.add(new JLabel(""));
+        panel_two.add(submit_btn);
 
         // Main Panel
         JPanel panel_one = new JPanel();
