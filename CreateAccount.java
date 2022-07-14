@@ -23,7 +23,7 @@ public class CreateAccount extends JFrame {
         first_name = new JTextField();
 
         JLabel last_name_label = new JLabel("Last Name");
-        first_name = new JTextField();
+        last_name = new JTextField();
 
         JLabel gender_label = new JLabel("Gender");
         gender = new JTextField();

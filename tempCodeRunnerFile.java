@@ -1,1 +1,2 @@
-new Font("Calibri", Font.BOLD, 45)
+
+        panel_one.add(ca, BorderLayout.PAGE_START);
