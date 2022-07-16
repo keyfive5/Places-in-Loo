@@ -6,24 +6,27 @@ public class MainMenu extends JFrame implements ActionListener{
     JFrame frame = new JFrame();
     JButton postButton = new JButton("Post a Sublet");
     JButton rentButton = new JButton("Rent a Sublet");
-    JButton cancelButton = new JButton("Post a Sublet");
+    JButton cancelButton = new JButton("Cancel a Sublet");
     JButton rateButton = new JButton("Rate a Sublet");
 
     // Intialize
     MainMenu() {
         // Labels and Text Fields
-        postButton.setBounds(100,160,200,60);
+        postButton.setBounds(200,160,200,60);
         postButton.setFocusable(false);
         postButton.addActionListener(this);
 
-        rentButton.setBounds(320,160,200,60);
+        rentButton.setBounds(420,160,200,60);
         rentButton.setFocusable(false);
+        rentButton.addActionListener(this);
 
-        cancelButton.setBounds(540,160,200,60);
+        cancelButton.setBounds(640,160,200,60);
         cancelButton.setFocusable(false);
+        cancelButton.addActionListener(this);
 
-        rateButton.setBounds(760,160,200,60);
+        rateButton.setBounds(860,160,200,60);
         rateButton.setFocusable(false);
+        rateButton.addActionListener(this);
 
         frame.add(postButton);
         frame.add(rentButton);
@@ -41,16 +44,19 @@ public class MainMenu extends JFrame implements ActionListener{
   
         if(e.getSource()==postButton) {
          frame.dispose();
-         //NewWindow myWindow = new NewWindow();
+         NewPost post = new NewPost();
         }
         else if(e.getSource()==rentButton){
             frame.dispose();
+            Rent rent = new Rent();
         }
         else if(e.getSource()==cancelButton){
             frame.dispose();
+            Cancel cancel = new Cancel();
         }
         else if(e.getSource()==rateButton){
             frame.dispose();
+            Rate rate = new Rate();
         }
     }
 
