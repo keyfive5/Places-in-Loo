@@ -44,7 +44,6 @@ public class LoginGUI extends JFrame {
                 String user = tfusername.getText();
                 String pass = tfpassword.getText();
                 // Finish Later
-
             }
         });
 
@@ -55,7 +54,8 @@ public class LoginGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 // Move to Create Account Page
-                CreateAccount.call_create_acct ();
+                CreateAccount.call_create_acct();
+                System.out.println("page changed");
                 setVisible(false);
             }
         });
