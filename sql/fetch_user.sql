@@ -1,0 +1,2 @@
+-- fetch 
+SELECT * FROM USER;
