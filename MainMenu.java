@@ -8,9 +8,14 @@ public class MainMenu extends JFrame implements ActionListener{
     JButton rentButton = new JButton("Rent a Sublet");
     JButton cancelButton = new JButton("Cancel a Sublet");
     JButton rateButton = new JButton("Rate a Sublet");
+    JLabel title = new JLabel("Main Page");
 
     // Intialize
     MainMenu() {
+        title.setHorizontalAlignment(JLabel.CENTER);
+        title.setFont(new Font("Calibri", Font.BOLD, 45));
+        title.setBounds(100,100,1000,60);
+        title.setFocusable(false);
         // Labels and Text Fields
         postButton.setBounds(200,160,200,60);
         postButton.setFocusable(false);
@@ -32,10 +37,11 @@ public class MainMenu extends JFrame implements ActionListener{
         frame.add(rentButton);
         frame.add(cancelButton);
         frame.add(rateButton);
+        frame.add(title);
         
         frame.getContentPane().setBackground(new Color(173, 216, 230));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420,420);
+        frame.setSize(1200,500);
         frame.setLayout(null);
         frame.setVisible(true);
 

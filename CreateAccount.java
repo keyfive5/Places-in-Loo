@@ -1,6 +1,6 @@
 
 import java.awt.*;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 
@@ -90,6 +90,7 @@ public class CreateAccount extends JFrame {
         setTitle("Places in 'Loo - Create Account");
         setMinimumSize(new Dimension(500, 500));
         setVisible(true);
+        
 
     }
 
