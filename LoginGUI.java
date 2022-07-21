@@ -42,7 +42,13 @@ public class LoginGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 String user = tfusername.getText();
-                String pass = tfpassword.getText();
+                String pass = tfpassword.getText();     
+                System.out.println(user);
+                if(user.equals("kabir") && pass.equals("kabir123")){
+                    setVisible(false);
+                    MainMenu Menu = new MainMenu(); 
+                }
+                
                 // Finish Later
             }
         });
