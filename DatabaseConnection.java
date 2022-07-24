@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 // Connector class that runs SQL queries through a database
 public class DatabaseConnection {
@@ -18,7 +19,8 @@ public class DatabaseConnection {
         Connection conn = null;
         try {
             // db parameters
-            Class.forName("org.sqlite.JDBC");
+            //Class.forName("org.sqlite.JDBC");
+            
             String url = "jdbc:sqlite:" + this.database;
             // create a connection to the database
             conn = DriverManager.getConnection(url);
@@ -46,7 +48,7 @@ public class DatabaseConnection {
 
             return result;
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
