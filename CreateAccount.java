@@ -1,7 +1,9 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.regex.*;
 import javax.swing.*;
+
 
 
 public class CreateAccount extends JFrame {
@@ -72,6 +74,27 @@ public class CreateAccount extends JFrame {
         // submit button 
 
         submit_btn = new JButton("Submit");
+        submit_btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Validation
+                String regex = "^(.+)@(.+)$";
+                Pattern pattern = Pattern.compile(regex);
+                String strEmail = email.getText();
+                Matcher matcher = pattern.matcher(strEmail);
+                if (!matcher.matches()){
+                    JOptionPane.showMessageDialog(panel_two, "Invalid email address");
+                    return;
+                }
+                String domain = strEmail.substring(strEmail.indexOf("@")+1, strEmail.lastIndexOf("."));
+                if (!domain.equals("mylaurier") && !domain.equals("uwaterloo")){
+                    JOptionPane.showMessageDialog(panel_two, "Not a laurier (mylaurier domain) or waterloo (uwaterloo domain) email.");
+                }
+                
+                CreateAccount.call_create_acct();
+                setVisible(false);
+            }
+        });
         panel_two.add(new JLabel(""));
         panel_two.add(submit_btn);
 

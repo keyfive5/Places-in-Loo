@@ -1,2 +1,2 @@
 -- Insert
-INSERT INTO POSTS VALUES (301,1,'Nabeel','Shahyan','shai1640@mylaurier.ca','2022-09-02', '2022-12-25', 1500, '168 King Street West','1 bed 1 bath fully furnished with balcony, all utilities and free designated spot');
+INSERT INTO POSTS VALUES (301,1,'Nabeel','Shahyan','shai1640@mylaurier.ca','2022-09-02', '2022-12-25', 1500, '168 King Street West','1 bed 1 bath fully furnished with balcony, all utilities and free designated spot',True);

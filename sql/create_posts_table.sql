@@ -10,5 +10,6 @@ CREATE TABLE POSTS (
   price_per_month INTEGER NOT NULL,
   location VARCHAR(999) NOT NULL,
   description VARCHAR(999) NOT NULL,
+  available BOOLEAN DEFAULT TRUE NOT NULL,
   FOREIGN KEY(user_id) REFERENCES USER(user_id) 
 );
