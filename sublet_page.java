@@ -6,8 +6,9 @@ public class sublet_page extends JFrame implements ActionListener{
     JFrame frame = new JFrame();
    
     JLabel title = new JLabel("For Rent");
-    String rentals [] = {"24 Hickory Street", "35 Lester", "224 University Avenue","232 Weber Street"};
+    String rentals [] = {"id:1, 24 Hickory Street", "id:2, 35 Lester", "id:3, 224 University Avenue","id:4, 232 Weber Street"};
     JList list = new JList<>(rentals);
+    JLabel info = new JLabel();
     JScrollPane scroll = new JScrollPane(list);
     JButton get_post = new JButton("Get Post");    
    
@@ -23,10 +24,12 @@ public class sublet_page extends JFrame implements ActionListener{
         scroll.setBounds(50, 75, 300, 50);
         get_post.setBounds(50, 300, 100, 20);
         get_post.addActionListener(this);
+        info.setBounds(200, 200, 100, 100);
        
         frame.add(title);
         frame.add(scroll);
         frame.add(get_post);
+        frame.add (info);
 
        
         
@@ -39,7 +42,14 @@ public class sublet_page extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == get_post){
-            System.out.println(list.getSelectedValue());
+            //frame.remove(info);
+            //System.out.println(list.getSelectedValue());
+            int post_location = list.getSelectedIndex();
+            info.setText(rentals[post_location]);
+            info.setBounds(50, 100, 1000, 100);
+            info.setFont(new Font("Verdana", Font.PLAIN, 20));;
+            info.setHorizontalAlignment(JLabel.LEADING);
+            frame.add(info);
         }
   
        
