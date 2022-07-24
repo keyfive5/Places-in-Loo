@@ -34,9 +34,9 @@ JFrame frame = new JFrame();
   duration.setFont(new Font(null,Font.PLAIN,15));
   duration_txt.setBounds(120,145,200,30);
 
-  description.setBounds(50,170,100,50);
+  description.setBounds(30,170,100,50);
   description.setFont(new Font(null,Font.PLAIN,15));
-  description_txt.setBounds(130,185,200,150);
+  description_txt.setBounds(120,185,200,150);
 
   submit_btn.setBounds(230,340,100,40);
 
