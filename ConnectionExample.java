@@ -1,7 +1,7 @@
 public class ConnectionExample {
     public static void main(String[] args){
         // Object used to connect to the database
-         DatabaseConnection conn = new DatabaseConnection("C:\\Users\\kabir\\Desktop\\317 project\\Places-in-Loo\\data.db");
+         DatabaseConnection conn = new DatabaseConnection("Places-in-Loo\\data.db");
         
         // Insert values into table example
         //conn.updateQuery("INSERT INTO USER VALUES(null,'username','password','email@mylaurier.ca','firstname','lastname','gender','university','2001-11-02');");
