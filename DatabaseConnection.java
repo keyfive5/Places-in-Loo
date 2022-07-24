@@ -18,7 +18,8 @@ public class DatabaseConnection {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\" + this.database;
+            Class.forName("org.sqlite.JDBC");
+            String url = "jdbc:sqlite:" + this.database;
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             
@@ -59,7 +60,7 @@ public class DatabaseConnection {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\" + this.database;
+            String url = "jdbc:sqlite:" + this.database;
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             
