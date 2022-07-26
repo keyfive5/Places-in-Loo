@@ -47,24 +47,24 @@ public class CreateAccount extends JFrame {
         date_of_birth = new JTextField("Enter date of birth here");
 
         // Panel with labels and text fields
-        JPanel panel_two = new JPanel(new GridLayout(9,2,5,5));
-        panel_two.setBackground(new Color(173, 216, 230));
-        panel_two.add(username_label);
-        panel_two.add(username);
-        panel_two.add(password_label);
-        panel_two.add(password);
-        panel_two.add(email_label);
-        panel_two.add(email);
-        panel_two.add(first_name_label);
-        panel_two.add(first_name);
-        panel_two.add(last_name_label);
-        panel_two.add(last_name);
-        panel_two.add(gender_label);
-        panel_two.add(gender);
-        panel_two.add(campus_label);
-        panel_two.add(campus);
-        panel_two.add(date_of_birth_label);
-        panel_two.add(date_of_birth);
+        JPanel panel_contents = new JPanel(new GridLayout(9,2,5,5));
+        panel_contents.setBackground(new Color(173, 216, 230));
+        panel_contents.add(username_label);
+        panel_contents.add(username);
+        panel_contents.add(password_label);
+        panel_contents.add(password);
+        panel_contents.add(email_label);
+        panel_contents.add(email);
+        panel_contents.add(first_name_label);
+        panel_contents.add(first_name);
+        panel_contents.add(last_name_label);
+        panel_contents.add(last_name);
+        panel_contents.add(gender_label);
+        panel_contents.add(gender);
+        panel_contents.add(campus_label);
+        panel_contents.add(campus);
+        panel_contents.add(date_of_birth_label);
+        panel_contents.add(date_of_birth);
 
         // Places in 'Loo Label
         ca = new JLabel("Create Account");
@@ -83,29 +83,29 @@ public class CreateAccount extends JFrame {
                 String strEmail = email.getText();
                 Matcher matcher = pattern.matcher(strEmail);
                 if (!matcher.matches()){
-                    JOptionPane.showMessageDialog(panel_two, "Invalid email address");
+                    JOptionPane.showMessageDialog(panel_contents, "Invalid email address");
                     return;
                 }
                 String domain = strEmail.substring(strEmail.indexOf("@")+1, strEmail.lastIndexOf("."));
                 if (!domain.equals("mylaurier") && !domain.equals("uwaterloo")){
-                    JOptionPane.showMessageDialog(panel_two, "Not a laurier (mylaurier domain) or waterloo (uwaterloo domain) email.");
+                    JOptionPane.showMessageDialog(panel_contents, "Not a laurier (mylaurier domain) or waterloo (uwaterloo domain) email.");
                 }
                 
                 CreateAccount.call_create_acct();
                 setVisible(false);
             }
         });
-        panel_two.add(new JLabel(""));
-        panel_two.add(submit_btn);
+        panel_contents.add(new JLabel(""));
+        panel_contents.add(submit_btn);
 
         // Main Panel
-        JPanel panel_one = new JPanel();
-        panel_one.setLayout(new BorderLayout());
-        panel_one.setBackground(new Color(173, 216, 230));
-        panel_one.add(panel_two, BorderLayout.CENTER);
-        panel_one.add(ca, BorderLayout.PAGE_START);
+        JPanel panel_background = new JPanel();
+        panel_background.setLayout(new BorderLayout());
+        panel_background.setBackground(new Color(173, 216, 230));
+        panel_background.add(panel_contents, BorderLayout.CENTER);
+        panel_background.add(ca, BorderLayout.PAGE_START);
 
-        add(panel_one);
+        add(panel_background);
 
         // Size and Visibility
         setSize(500, 500);

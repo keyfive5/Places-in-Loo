@@ -79,14 +79,4 @@ public class DatabaseConnection {
             return false;
         }
     }
-
-    //public Boolean insert(String tablename, String values){
-    //    String query = "INSERT INTO " + tablename + " VALUES(" + values + ")";
-    //    return this.updateQuery(query);
-    //}
-//
-    //public ResultSet retrieve(String fields, String tablename, String arguments){
-    //    String query = "SELECT " + fields + " FROM "
-    //    return ;
-    //}
 }
