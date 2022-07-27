@@ -1,15 +1,17 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.regex.*;
 import javax.swing.*;
 
 
 
 public class CreateAccount extends JFrame {
-    JTextField username, password, email, first_name, last_name, gender, campus, date_of_birth;
-    JLabel ca;
-    JButton submit_btn;
+    private JTextField username, password, email, first_name, last_name, gender, campus, date_of_birth;
+    private JLabel ca;
+    private JButton submit_btn;
+    private String database = "Places-in-Loo\\data.db"; 
 
     // Intialize
     public void init() {
@@ -77,7 +79,7 @@ public class CreateAccount extends JFrame {
         submit_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Validation
+                // Email Validation
                 String regex = "^(.+)@(.+)$";
                 Pattern pattern = Pattern.compile(regex);
                 String strEmail = email.getText();
@@ -86,12 +88,25 @@ public class CreateAccount extends JFrame {
                     JOptionPane.showMessageDialog(panel_contents, "Invalid email address");
                     return;
                 }
+                // Waterloo or Laurier email validation
                 String domain = strEmail.substring(strEmail.indexOf("@")+1, strEmail.lastIndexOf("."));
                 if (!domain.equals("mylaurier") && !domain.equals("uwaterloo")){
-                    JOptionPane.showMessageDialog(panel_contents, "Not a laurier (mylaurier domain) or waterloo (uwaterloo domain) email.");
+                    JOptionPane.showMessageDialog(panel_contents, "Not a laurier (mylaurier domain) or" +
+                     " waterloo (uwaterloo domain) email.");
+                     return;
                 }
-                
-                CreateAccount.call_create_acct();
+                // Check if username is unique
+                DatabaseConnection connection = new DatabaseConnection(database);
+                ArrayList<ArrayList<String>> usernames = connection.retrieveQuery("SELECT username FROM USER");
+                for (int i=0;i<usernames.size();i++){
+                    if (usernames.get(i).contains(username.getText())){
+                        JOptionPane.showMessageDialog(panel_contents, "Username already taken. Please try a different username");
+                        return;
+                    }
+                }
+
+                // Go back to Login page
+                LoginGUI.call_login_gui();
                 setVisible(false);
             }
         });

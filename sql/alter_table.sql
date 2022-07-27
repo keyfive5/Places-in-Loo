@@ -1,1 +1,1 @@
-DROP TABLE USER;
+SELECT username FROM USER;

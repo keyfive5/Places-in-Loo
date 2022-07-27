@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -15,15 +16,10 @@ public class DatabaseConnection {
         this.database = database;
     }
 
-    public String[] retrieveQuery(String query) {
-        Connection conn = null;
+    // Returns a 2D arraylist of strings of all records
+    public ArrayList<ArrayList<String>> retrieveQuery(String query) {
         try {
-            // db parameters
-            String url = "jdbc:sqlite:" + this.database;
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-            
-            System.out.println("Connection to SQLite has been established.");
+            Connection conn = create_connection();  
 
             Statement statement = conn.createStatement();
 
@@ -31,18 +27,17 @@ public class DatabaseConnection {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columns = rsmd.getColumnCount();
 
-            String[] result = new String[columns];
+            ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
             while (rs.next()){
+                ArrayList<String> record = new ArrayList<String>();
                 for (int i=0;i<columns;i++){
-                    result[i] = rs.getString(i+1);
+                    String value = rs.getString(i+1);
+                    record.add(value);
                 }
+                result.add(record);
             }
-            
-            //String name = rs.getString("username");
 
-            if (conn != null) {
-                conn.close();
-            }
+            close_connection(conn);
 
             return result;
             
@@ -57,26 +52,41 @@ public class DatabaseConnection {
 
     // Enter the update query, returns True upon success
     public Boolean updateQuery(String query){
-        Connection conn = null;
         try {
-            // db parameters
-            String url = "jdbc:sqlite:" + this.database;
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-            
-            System.out.println("Connection to SQLite has been established.");
+            Connection conn = create_connection();            
 
             Statement statement = conn.createStatement();
 
             statement.executeUpdate(query);
 
-            if (conn != null) {
-                conn.close();
-            }  
+            close_connection(conn);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    private Connection create_connection(){
+        Connection conn = null;
+        try{
+            String url = "jdbc:sqlite:" + this.database;
+            conn = DriverManager.getConnection(url);
+            System.out.println("Connection to SQLite has been established.");
+            return conn;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    private void close_connection(Connection conn){
+        try{
+            if (conn != null) {
+                conn.close();
+            } 
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

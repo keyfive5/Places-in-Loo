@@ -97,4 +97,10 @@ public class LoginGUI extends JFrame {
         first.init();
 
     }
+
+    public static void call_login_gui(){
+        LoginGUI login = new LoginGUI();
+        login.init();
+
+    }
 }

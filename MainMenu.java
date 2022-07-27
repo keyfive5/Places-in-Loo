@@ -49,8 +49,8 @@ public class MainMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
   
         if(e.getSource()==postButton) {
-         frame.dispose();
-         NewPost post = new NewPost();
+            frame.dispose();
+            NewPost post = new NewPost();
         }
         else if(e.getSource()==rentButton){
             frame.dispose();
