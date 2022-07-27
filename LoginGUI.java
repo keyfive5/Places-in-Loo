@@ -50,7 +50,7 @@ public class LoginGUI extends JFrame {
                     MainMenu Menu = new MainMenu(); 
                 }
 
-                DatabaseConnection connection = new DatabaseConnection(database)
+                DatabaseConnection connection = new DatabaseConnection(database);
                 
                 // Finish Later
             }
