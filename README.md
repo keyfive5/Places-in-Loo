@@ -37,12 +37,17 @@ Login
 SQLite JDBC connector (located in the driver folder)
 
 # To-do
-Backend for posts
+- Main Menu -> Add "View My Postings" options (to view your current postings, add a "Mark as rented" button to change availability of sublet)
+- Backend for View Available Postings (only show "available" Postings)
+- Posting class (from SDD)
 
-Backend for rent a sublet
+Features to add if there is extra time
+- Message function
 
-Backend for ratings 
+# Changed features
+In the app, a sublessor can also be a subtenant as well, so we are no longer differentiating between the two.
+Due to the removal of the rating system, we no longer require the User class since the User attributes are stored in the database.
 
-Posting class
-
-Message function
+# Removed Features
+Due to time constraints, we have decided not to implement the following features listed in the Software Design Document
+- Rating system
