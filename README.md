@@ -36,7 +36,9 @@ Login
 # External tools used
 SQLite JDBC connector (located in the driver folder)
 
-# Todo
+# To-do
 Backend for posts
+Backend for rent a sublet
+Backend for ratings 
 Posting class
 Message function
