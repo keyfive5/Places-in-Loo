@@ -3,12 +3,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class MainMenu extends JFrame implements ActionListener{
-    JFrame frame = new JFrame();
-    JButton postButton = new JButton("Post a Sublet");
-    JButton rentButton = new JButton("Rent a Sublet");
-    JButton cancelButton = new JButton("Cancel a Sublet");
-    JButton rateButton = new JButton("Rate a Sublet");
-    JLabel title = new JLabel("Main Page");
+    private JFrame frame = new JFrame();
+    private JButton postButton = new JButton("Post a Sublet");
+    private JButton rentButton = new JButton("Rent a Sublet");
+    private JButton cancelButton = new JButton("Cancel a Sublet");
+    private JButton rateButton = new JButton("Rate a Sublet");
+    private JLabel title = new JLabel("Main Page");
 
     // Intialize
     MainMenu() {

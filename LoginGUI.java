@@ -5,9 +5,10 @@ import javax.swing.*;
 
 
 public class LoginGUI extends JFrame {
-    JTextField tfusername;
-    JPasswordField tfpassword;
-    JLabel places;
+    private JTextField tfusername;
+    private JPasswordField tfpassword;
+    private JLabel places;
+    private String database = "Places-in-Loo\\data.db"; 
 
     // Initializing the LoginGUI
     public void init() {
@@ -42,12 +43,14 @@ public class LoginGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 String user = tfusername.getText();
-                String pass = tfpassword.getText();     
-                System.out.println(user);
+                String pass = tfpassword.getText();    
+
                 if(user.equals("kabir") && pass.equals("kabir123")){
                     setVisible(false);
                     MainMenu Menu = new MainMenu(); 
                 }
+
+                DatabaseConnection connection = new DatabaseConnection(database)
                 
                 // Finish Later
             }

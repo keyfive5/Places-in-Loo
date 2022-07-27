@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Sublessor {
-	public ArrayList<Posting> postings = new ArrayList<Posting>();
+	private ArrayList<Posting> postings = new ArrayList<Posting>();
 	
 	public void createPosting(String location, Sublessor sublessor, int duration, String description, int post_id) {
 		//TODO
