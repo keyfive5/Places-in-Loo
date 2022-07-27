@@ -6,7 +6,8 @@ Pre-requisites:
 This application was mainly developed using Visual Studio Code, and some functions may not work without it.
 It can be downloaded here: https://code.visualstudio.com/download
 
-To install, first clone the Github repository using: git clone https://github.com/keyfive5/Places-in-Loo.git
+To install, you can clone the repository using: git clone https://github.com/keyfive5/Places-in-Loo.git
+If git is not installed, you can download the ZIP file and unzip it.
 
 Next, there are 2 important Visual Studio Code extensions that are required in order to run the app.
   1. Extension Pack for Java by Microsoft
