@@ -16,16 +16,20 @@ Next, there are 2 important Visual Studio Code extensions that are required in o
  
  For steps on how to install Visual Studio extensions, follow https://code.visualstudio.com/docs/editor/extension-marketplace
  
-Once you have the following extensions installed, you will need to add the .jar file in the "driver" folder as a reference library
-To do this in Visual Studio Code, click on the project. You should see a section called "Java Projects" appear
+Once you have the following extensions installed, you will need to add the .jar file in the **driver** folder as a reference library
+To do this in Visual Studio Code, click on the project. You should see a section called **Java Projects** appear
 
 ![image](https://user-images.githubusercontent.com/53016334/181165663-a4de7066-f89b-40d1-9529-6400facd50dd.png)
 
 
-Scroll down untill you see Reference Libraries. Click the pluss sign icon and add the .jar file fouind in the "driver" folder of the project.
+Scroll down untill you see Reference Libraries. Click the plus sign icon and add the .jar file fouind in the **driver** folder of the project.
+
+To check if you completed the steps correctly, run the **ConnectionExample.java** file to see if you are getting an error.
+
+If you are receiving an error , follow the **Troubleshooting** section found at the end of this README
 
 # Running the app
-To run the app, run the Start.java file
+To run the app, run the **Start.java** file
 
 # Features that we have completed completed
 Create account
@@ -51,3 +55,14 @@ Due to the removal of the rating system, we no longer require the User class sin
 # Removed Features
 Due to time constraints, we have decided not to implement the following features listed in the Software Design Document
 - Rating system
+
+# Troubleshooting
+Visual Studio Code has a very weird bug where depending on how you open the folder, you will get a different path.
+<br>
+This means that the file may not be able to find the database. If you are having difficulties connecting to the database, you may have to hardcode the path to the database (data.db file). To do this, open the **DatabaseConnection.java** file
+<br>
+![image](https://user-images.githubusercontent.com/53016334/181295495-1ec27a46-b57c-4f08-a3a5-66663c6baaaa.png)
+
+In the DatabaseConnection constructor, uncomment out: //this.database = "enter-full-path-to-data.db-file-here";
+<br>
+then replace the right side of the equation with the full path to the **data.db** file.
