@@ -1,1 +1,1 @@
-SELECT username FROM USER;
+SELECT user_id FROM USER WHERE username = 'caix3600' AND password = 'password';

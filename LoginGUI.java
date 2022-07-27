@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 
@@ -45,14 +47,15 @@ public class LoginGUI extends JFrame {
                 String user = tfusername.getText();
                 String pass = tfpassword.getText();    
 
-                if(user.equals("kabir") && pass.equals("kabir123")){
+                DatabaseConnection connection = new DatabaseConnection(database);
+                ArrayList<ArrayList<String>> user_info = connection.retrieveQuery(String.format("SELECT user_id FROM USER WHERE" +
+                                                        " username = '%s' AND password = '%s'", user,pass));
+                if (user_info != null && user_info.size() != 0){
                     setVisible(false);
                     MainMenu Menu = new MainMenu(); 
+                } else {
+                    JOptionPane.showMessageDialog(panel_contents, "Login credentials incorrect. Please try again.");
                 }
-
-                DatabaseConnection connection = new DatabaseConnection(database);
-                
-                // Finish Later
             }
         });
 

@@ -98,10 +98,12 @@ public class CreateAccount extends JFrame {
                 // Check if username is unique
                 DatabaseConnection connection = new DatabaseConnection(database);
                 ArrayList<ArrayList<String>> usernames = connection.retrieveQuery("SELECT username FROM USER");
-                for (int i=0;i<usernames.size();i++){
-                    if (usernames.get(i).contains(username.getText())){
-                        JOptionPane.showMessageDialog(panel_contents, "Username already taken. Please try a different username");
-                        return;
+                if (usernames != null){
+                    for (int i=0;i<usernames.size();i++){
+                        if (usernames.get(i).contains(username.getText())){
+                            JOptionPane.showMessageDialog(panel_contents, "Username already taken. Please try a different username");
+                            return;
+                        }
                     }
                 }
 

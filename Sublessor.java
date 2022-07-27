@@ -17,6 +17,6 @@ public class Sublessor {
 		}
 	}
 	public ArrayList<Posting> getPostings(){
-		return postings;
+		return this.postings;
 	}
 }
