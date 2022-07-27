@@ -19,13 +19,13 @@ public class LoginGUI extends JFrame {
         tfpassword = new JPasswordField();
 
         // Panel 2 is for the buttons and text fields
-        JPanel panel_two = new JPanel();
-        panel_two.setLayout(new GridLayout(4, 1, 5, 5));
-        panel_two.setBackground(new Color(173, 216, 230));
-        panel_two.add(username_label);
-        panel_two.add(tfusername);
-        panel_two.add(password_label);
-        panel_two.add(tfpassword);
+        JPanel panel_contents = new JPanel();
+        panel_contents.setLayout(new GridLayout(4, 1, 5, 5));
+        panel_contents.setBackground(new Color(173, 216, 230));
+        panel_contents.add(username_label);
+        panel_contents.add(tfusername);
+        panel_contents.add(password_label);
+        panel_contents.add(tfpassword);
 
         // Places in 'Loo Label
         places = new JLabel("Places-in-Loo Login Page");
@@ -61,7 +61,6 @@ public class LoginGUI extends JFrame {
                 // TODO Auto-generated method stub
                 // Move to Create Account Page
                 CreateAccount.call_create_acct();
-                System.out.println("page changed");
                 setVisible(false);
             }
         });
@@ -74,15 +73,15 @@ public class LoginGUI extends JFrame {
         btnPanel.setBackground(new Color(173, 216, 230));
 
         // Main panel
-        JPanel panel_one = new JPanel();
-        panel_one.setLayout(new BorderLayout());
-        panel_one.setBackground(new Color(173, 216, 230));
-        panel_one.add(panel_two, BorderLayout.CENTER);
-        panel_one.add(places, BorderLayout.PAGE_START);
-        panel_one.add(btnPanel, BorderLayout.SOUTH);
+        JPanel panel_background = new JPanel();
+        panel_background.setLayout(new BorderLayout());
+        panel_background.setBackground(new Color(173, 216, 230));
+        panel_background.add(panel_contents, BorderLayout.CENTER);
+        panel_background.add(places, BorderLayout.PAGE_START);
+        panel_background.add(btnPanel, BorderLayout.SOUTH);
        
 
-        add(panel_one);
+        add(panel_background);
 
         // Size and Visibility
         setSize(500, 500);
