@@ -61,7 +61,16 @@ Due to time constraints, we have decided not to implement the following features
 # Troubleshooting
 Visual Studio Code has a very weird bug where depending on how you open the folder, you will get a different path.
 <br>
-This means that the file may not be able to find the database. If you are having difficulties connecting to the database, you may have to hardcode the path to the database (data.db file). To do this, open the **DatabaseConnection.java** file
+This means that the file may not be able to find the database. We can first try to configure the Classpath. To do this, click on any .java file
+to open the **Java Projects** section. Right click "Places-in-Loo" under **Java Projects**, then select **Configure Classpath**.
+
+![image](https://user-images.githubusercontent.com/53016334/181340293-6b7aaf1d-56cd-4821-9999-362a18109923.png)
+
+Click on the "Select the project folder" and select "Places-in-Loo".
+
+![image](https://user-images.githubusercontent.com/53016334/181340242-d6688e71-046d-40e5-9b38-51de3d7d53da.png)
+
+If you are still having difficulties connecting to the database, you may have to hardcode the path to the database (data.db file). To do this, open the **DatabaseConnection.java** file
 <br>
 ![image](https://user-images.githubusercontent.com/53016334/181295495-1ec27a46-b57c-4f08-a3a5-66663c6baaaa.png)
 
