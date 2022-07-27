@@ -44,6 +44,8 @@ SQLite JDBC connector (located in the driver folder)
 - Main Menu -> Add "View My Postings" options (to view your current postings, add a "Mark as rented" button to change availability of sublet)
 - Backend for View Available Postings (only show "available" Postings)
 - Posting class (from SDD)
+- Add "Back" button to all GUI
+- Add "Logout" button in Main menu that goes back to Login page
 
 Features to add if there is extra time
 - Message function
