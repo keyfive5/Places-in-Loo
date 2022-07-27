@@ -16,8 +16,8 @@ Next, there are 2 important Visual Studio Code extensions that are required in o
  
  For steps on how to install Visual Studio extensions, follow https://code.visualstudio.com/docs/editor/extension-marketplace
  
-Once you have the following extensions installed, you will need to add the .jar file in the **driver** folder as a reference library
-To do this in Visual Studio Code, click on the project. You should see a section called **Java Projects** appear
+Once you have the following extensions installed, you will need to add the .jar file in the **driver** folder as a Reference Library.
+To do this in Visual Studio Code, click on the project. Then click on any .java file. You should see a section called **Java Projects** appear at the bottom.
 
 ![image](https://user-images.githubusercontent.com/53016334/181165663-a4de7066-f89b-40d1-9529-6400facd50dd.png)
 
