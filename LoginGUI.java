@@ -10,7 +10,6 @@ public class LoginGUI extends JFrame {
     private JTextField tfusername;
     private JPasswordField tfpassword;
     private JLabel places;
-    private String database = "Places-in-Loo\\data.db"; 
 
     // Initializing the LoginGUI
     public void init() {
@@ -47,7 +46,7 @@ public class LoginGUI extends JFrame {
                 String user = tfusername.getText();
                 String pass = tfpassword.getText();    
 
-                DatabaseConnection connection = new DatabaseConnection(database);
+                DatabaseConnection connection = new DatabaseConnection();
                 ArrayList<ArrayList<String>> user_info = connection.retrieveQuery(String.format("SELECT user_id FROM USER WHERE" +
                                                         " username = '%s' AND password = '%s'", user,pass));
                 if (user_info != null && user_info.size() != 0){

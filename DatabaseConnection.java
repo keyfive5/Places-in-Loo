@@ -12,8 +12,18 @@ public class DatabaseConnection {
     // Set this parameter to file location of of the database
     private String database;
 
-    public DatabaseConnection(String database){
-        this.database = database;
+    public DatabaseConnection(){
+        try{
+            this.database = System.getProperty("user.dir") + "\\data.db";
+
+            // VS Code is weird where depending on how you open the file, the file path can be different
+            // In case of error connecting to the database, uncomment the line below and put you full file path to the data.db file
+            
+            //this.database = "enter-full-path-to-data.db-file-here";
+
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     // Returns a 2D arraylist of strings of all records

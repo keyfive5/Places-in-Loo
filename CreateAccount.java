@@ -10,8 +10,7 @@ import javax.swing.*;
 public class CreateAccount extends JFrame {
     private JTextField username, password, email, first_name, last_name, gender, campus, date_of_birth;
     private JLabel ca;
-    private JButton submit_btn;
-    private String database = "Places-in-Loo\\data.db"; 
+    private JButton submit_btn; 
 
     // Intialize
     public void init() {
@@ -96,7 +95,7 @@ public class CreateAccount extends JFrame {
                      return;
                 }
                 // Check if username is unique
-                DatabaseConnection connection = new DatabaseConnection(database);
+                DatabaseConnection connection = new DatabaseConnection();
                 ArrayList<ArrayList<String>> usernames = connection.retrieveQuery("SELECT username FROM USER");
                 if (usernames != null){
                     for (int i=0;i<usernames.size();i++){
