@@ -105,6 +105,11 @@ public class CreateAccount extends JFrame {
                     }
                 }
 
+                String query = String.format("INSERT INTO USER VALUES(%s,'%s','%s','%s','%s','%s','%s','%s','%s');",
+                        null,username.getText(),password.getText(),email.getText(),first_name.getText(),last_name.getText(),
+                        gender.getText(),campus.getText(),date_of_birth.getText());
+                connection.updateQuery(query);
+
                 // Go back to Login page
                 LoginGUI.call_login_gui();
                 setVisible(false);
