@@ -1,5 +1,5 @@
 # Places-in-Loo
-Hasan (MZ), Kabir, Shahyan (MK), Faisal (MN), Jack, Jackson, Nabeel
+Hasan (MZ), Kabir, Shahyan (MK), Faisal (MN), Jack, Jackson, Nabeel, Wrenen
 
 # Installation
 Pre-requisites:
