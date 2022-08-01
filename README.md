@@ -1,5 +1,5 @@
 # Places-in-Loo
-Hasan (MZ), Kabir, Shahyan (MK), Faisal (MN), Jack, Jackson, Nabeel
+Hasan (MZ), Kabir, Shahyan (MK), Faisal (MN), Jack, Jackson, Nabeel, Wrenen
 
 # Installation
 Pre-requisites:
@@ -32,10 +32,10 @@ If you are receiving an error , follow the **Troubleshooting** section found at 
 To run the app, run the **Start.java** file
 
 # Features that we have completed completed
-Create account
+- Create account
   - Email validation
   - Unique username
-Login 
+- Login 
 
 # External tools used
 SQLite JDBC connector (located in the driver folder)
@@ -49,16 +49,20 @@ SQLite JDBC connector (located in the driver folder)
 
 Features to add if there is extra time
 - Message function
+- Rating system
 
 # Changed features
-In the app, a sublessor can also be a subtenant as well, so we are no longer differentiating between the two.
-Due to the removal of the rating system, we no longer require the User class since the User attributes are stored in the database.
 
 # Removed Features
 Due to time constraints, we have decided not to implement the following features listed in the Software Design Document
-- Rating system
 
 # Troubleshooting
+Conflicting Extensions:
+<br>
+There are a few conflicting extensions that may make the database connection not work. Check if you have an extension called Code Runner and make sure you have the Code Runner extension ***uninstalled***, then restart VS Code.
+Try running the java file by right clicking the .java file and selecting "Run Java". If this option is not available, it means you do not have the **Extension Pack for Java** installed
+ mentioned above
+ 
 Visual Studio Code has a very weird bug where depending on how you open the folder, you will get a different path.
 <br>
 This means that the file may not be able to find the database. We can first try to configure the Classpath. To do this, click on any .java file
