@@ -10,3 +10,7 @@ CREATE TABLE USER (
   campus VARCHAR(100) NOT NULL,
   date_of_birth DATE NOT NULL
 );
+
+-- Altered table after creation
+ALTER TABLE USER ADD COLUMN rating DECIMAL(3,2);
+ALTER TABLE USER ADD COLUMN total_ratings INT DEFAULT 0 NOT NULL;

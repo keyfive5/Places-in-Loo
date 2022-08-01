@@ -1,1 +1,1 @@
-SELECT user_id FROM USER WHERE username = 'caix3600' AND password = 'password';
+ALTER TABLE USER ADD COLUMN total_ratings INT DEFAULT 0 NOT NULL;
