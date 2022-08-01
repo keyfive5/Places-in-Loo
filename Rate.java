@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Rate {
+    private int rating = 0;
     Rate(){
 
         Icon star = new ImageIcon("./assets/star.png");
@@ -32,7 +33,7 @@ public class Rate {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("1 star");
+                rating = 1;
             }
         });
         panel.add(btnRate1);
@@ -42,7 +43,7 @@ public class Rate {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("2 star");
+                rating = 2;
             }
         });
         panel.add(btnRate2);
@@ -52,7 +53,7 @@ public class Rate {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("3 star");
+                rating = 3;
             }
         });
         panel.add(btnRate3);
@@ -62,7 +63,7 @@ public class Rate {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("4 star");
+                rating = 4;
             }
         });
         panel.add(btnRate4);
@@ -72,7 +73,7 @@ public class Rate {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("5 star");
+                rating = 5;
             }
         });
         panel.add(btnRate5);
@@ -81,6 +82,18 @@ public class Rate {
         panel.add(txtReview);
 
         btnSubmit.setBounds(20,320,100,40);
+        btnSubmit.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(rating +" stars");
+                if (new String("(optional) Enter a review").equals(txtReview.getText())){
+                    return;
+                } else {
+                    System.out.printf(txtReview.getText());
+                }
+            }
+        });
         panel.add(btnSubmit);
 
         frame.add(panel,BorderLayout.CENTER);
