@@ -59,8 +59,8 @@ Due to time constraints, we have decided not to implement the following features
 # Troubleshooting
 Conflicting Extensions:
 <br>
-There are a few conflicting extensions that may make the database connection not work. Check if you have an extension called Code Runner and make sure you have the Code Runner extension ***uninstalled***.
-Then try running the java file by right clicking the .java file and selecting "Run Java". If this option is not available, it means you do not have the **Extension Pack for Java** installed
+There are a few conflicting extensions that may make the database connection not work. Check if you have an extension called Code Runner and make sure you have the Code Runner extension ***uninstalled***, then restart VS Code.
+Try running the java file by right clicking the .java file and selecting "Run Java". If this option is not available, it means you do not have the **Extension Pack for Java** installed
  mentioned above
  
 Visual Studio Code has a very weird bug where depending on how you open the folder, you will get a different path.
