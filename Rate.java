@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Rate {
     Rate(){
 
-        Icon star = new ImageIcon("star.png");
+        Icon star = new ImageIcon("./assets/star.png");
         JButton btnRate1 = new JButton(star);
         JButton btnRate2 = new JButton(star);
         JButton btnRate3 = new JButton(star);
