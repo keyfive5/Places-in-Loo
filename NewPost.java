@@ -14,8 +14,23 @@ public class NewPost {
     private JTextField duration_txt = new JTextField ("Enter Duration in months");
     private JTextField description_txt = new JTextField("Enter Description");
     private JButton submit_btn = new JButton ("Submit");
+    private Icon home = new ImageIcon("./Assets/home.png");
+    private JButton home_btn = new JButton(home);
  
     NewPost(){
+        home_btn.setBounds(5,5,32,32);
+        home_btn.setBorder(null);
+        home_btn.setBackground(null);
+        home_btn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                MainMenu Menu = new MainMenu();
+            }
+        });
+        frame.add(home_btn);
+
         title.setBounds(125,10,1000,50);
         title.setFont(new Font(null,Font.PLAIN,25));
 
