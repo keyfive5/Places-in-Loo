@@ -1,9 +1,9 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class NewPost {
     private JFrame frame = new JFrame();
-    private JLabel label = new JLabel("Test");
     private JLabel title = new JLabel("Post a Sublet");
     private JLabel location = new JLabel("Location");
     private JLabel sublessor = new JLabel ("Sublessor");
@@ -16,10 +16,6 @@ public class NewPost {
     private JButton submit_btn = new JButton ("Submit");
  
     NewPost(){
-    
-        label.setBounds(0,0,100,50);
-        label.setFont(new Font(null,Font.PLAIN,25));
-
         title.setBounds(125,10,1000,50);
         title.setFont(new Font(null,Font.PLAIN,25));
 
@@ -40,6 +36,31 @@ public class NewPost {
         description_txt.setBounds(120,185,200,150);
 
         submit_btn.setBounds(230,340,100,40);
+        submit_btn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(new String("Enter Location").equals(location_txt.getText())){
+                    JOptionPane.showMessageDialog(frame, "Enter a vaild Location!");
+                }
+                if(new String("Enter Sublessor").equals(sublessor_txt.getText())){
+                    JOptionPane.showMessageDialog(frame, "Enter a vaild Sublessor!");
+                }
+                if(! isNumeric(duration_txt.getText())){
+                    JOptionPane.showMessageDialog(frame, "Enter a valid duration!");
+                }
+                if(new String("Enter Description").equals(description_txt.getText())){
+                    JOptionPane.showMessageDialog(frame, "Enter a valid description!");
+                }
+
+                DatabaseConnection connection = new DatabaseConnection();
+                String query = String.format("INSERT INTO USER VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
+                null,null,null,null,null,new String("0/0/0000"),new String("0/0/0000"),
+                0,location_txt.getText(),description_txt.getText(),true);
+                connection.updateQuery(query);
+                                 
+            }
+        });
 
 
             
@@ -66,5 +87,19 @@ public class NewPost {
     }
     public static void main(String[] args) {
         NewPost post = new NewPost();
+    }
+
+    private static boolean isNumeric(String string) {
+        int intValue;
+               
+        if(string == null || string.equals("")) {
+            return false;
+        }
+        try {
+            intValue = Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
