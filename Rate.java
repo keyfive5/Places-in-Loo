@@ -6,7 +6,9 @@ public class Rate {
     private int rating = 0;
     
     Rate(){
-        Icon star = new ImageIcon("./assets/star.png");
+        Icon star = new ImageIcon("./Assets/star.png");
+        Icon home = new ImageIcon("./Assets/home.png");
+        JButton btnHome = new JButton(home);
         JButton btnRate1 = new JButton(star);
         JButton btnRate2 = new JButton(star);
         JButton btnRate3 = new JButton(star);
@@ -24,6 +26,19 @@ public class Rate {
         //panel.setLayout(new GridLayout(4,1));
         panel.setLayout(null);
         panel.setBackground(new Color(173, 216, 230));
+
+        btnHome.setBounds(5,5,32,32);
+        btnHome.setBorder(null);
+        btnHome.setBackground(null);
+        btnHome.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                MainMenu Menu = new MainMenu();
+            }
+        });
+        panel.add(btnHome);
         
         lblQuest.setBounds(50,30,500,25);
         lblQuest.setFont(new Font(null,Font.PLAIN,15));
