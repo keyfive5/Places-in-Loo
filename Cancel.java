@@ -23,7 +23,7 @@ public class Cancel {
         });
         frame.add(home_btn);    
     
-        label.setBounds(20,30,400,100);
+        label.setBounds(20,10,400,100);
         label.setFont(new Font(null,Font.PLAIN,25));
 
         cancel_btn.setBounds(100,80,200,60);
