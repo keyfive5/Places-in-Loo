@@ -102,6 +102,7 @@ public class NewPost {
                     description_txt.getText(),true);
 
                     connection.updateQuery(query);
+                    JOptionPane.showMessageDialog(frame, "Sublet successfully posted.");
 
                 } else {
                     JOptionPane.showMessageDialog(frame, "Invaild Subleassor\nPlease make sure username is same as Sublessor");
