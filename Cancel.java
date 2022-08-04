@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class Cancel {
     private JFrame frame = new JFrame();
-    private JLabel label = new JLabel("Are sure you want to cancel your current sublet?");
+    private JLabel label = new JLabel("<html>Are sure you want to cancel your<br>current sublet?</html>",SwingConstants.CENTER);
     private JButton cancel_btn = new JButton("Cancel");
     private Icon home = new ImageIcon("./Assets/home.png");
     private JButton home_btn = new JButton(home);
@@ -23,10 +23,10 @@ public class Cancel {
         });
         frame.add(home_btn);    
     
-        label.setBounds(20,10,400,100);
+        label.setBounds(20,30,400,100);
         label.setFont(new Font(null,Font.PLAIN,25));
 
-        cancel_btn.setBounds(100,80,200,60);
+        cancel_btn.setBounds(100,160,200,60);
         cancel_btn.addActionListener(new ActionListener() {
 
             @Override
@@ -45,5 +45,9 @@ public class Cancel {
         frame.setVisible(true);
 
     return;
+    }
+
+    public static void main(String[] args) {
+        new Cancel();
     }
 }
