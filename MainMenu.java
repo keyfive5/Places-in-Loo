@@ -8,6 +8,7 @@ public class MainMenu extends JFrame implements ActionListener{
     private JButton rentButton = new JButton("Rent a Sublet");
     private JButton cancelButton = new JButton("Cancel a Sublet");
     private JButton rateButton = new JButton("Rate a Sublet");
+    private JButton logoutButton = new JButton("Logout");
     private JLabel title = new JLabel("Main Page");
 
     // Intialize
@@ -33,10 +34,15 @@ public class MainMenu extends JFrame implements ActionListener{
         rateButton.setFocusable(false);
         rateButton.addActionListener(this);
 
+        logoutButton.setBounds(960,360,200,60);
+        logoutButton.setFocusable(false);
+        logoutButton.addActionListener(this);
+
         frame.add(postButton);
         frame.add(rentButton);
         frame.add(cancelButton);
         frame.add(rateButton);
+        frame.add(logoutButton);
         frame.add(title);
         
         frame.getContentPane().setBackground(new Color(173, 216, 230));
@@ -63,6 +69,11 @@ public class MainMenu extends JFrame implements ActionListener{
         else if(e.getSource()==rateButton){
             frame.dispose();
             Rate rate = new Rate();
+        }
+        else if(e.getSource()==logoutButton){
+            frame.dispose();
+            LoginGUI login = new LoginGUI();
+            login.call_login_gui();
         }
     }
 

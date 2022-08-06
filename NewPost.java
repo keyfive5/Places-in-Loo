@@ -23,7 +23,7 @@ public class NewPost {
     private Icon home = new ImageIcon("./Assets/home.png");
     private JButton home_btn = new JButton(home);
  
-    NewPost(){
+    public NewPost(){
         home_btn.setBounds(5,5,32,32);
         home_btn.setBorder(null);
         home_btn.setBackground(null);
