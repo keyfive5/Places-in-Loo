@@ -59,6 +59,15 @@ Due to time constraints, we have decided not to implement the following features
 - Message Function, currently displays a message but does not message anyone
 - Message class therefore not implemented since this feature was not implemented
 
+# File explaination
+All the files in the sql folder are the files ran to create and modify the initial database. They are only there to show how they were created and are not needed to run the actual implementation.
+
+Start.java - The main java file, runs the LoginGUI class
+<br>
+LoginGUI.java - The file that creates the login page and deals with the login page backend
+<br>
+CreateAccount.java - The file that creates the create account page and deals with the create account backend
+
 # Troubleshooting
 Conflicting Extensions:
 <br>
