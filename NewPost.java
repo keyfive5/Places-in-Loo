@@ -8,13 +8,11 @@ public class NewPost {
     private JFrame frame = new JFrame();
     private JLabel title = new JLabel("Post a Sublet");
     private JLabel location = new JLabel("Location");
-    private JLabel sublessor = new JLabel ("Sublessor");
     private JLabel startDate = new JLabel ("Start date");
     private JLabel endDate = new JLabel ("End date");
     private JLabel price = new JLabel("Price per month");
     private JLabel description = new JLabel ("Description");
     private JTextField location_txt = new JTextField ("Enter Location");
-    private JTextField sublessor_txt = new JTextField("Enter Sublessor");
     private JFormattedTextField startDate_txt = new JFormattedTextField(new SimpleDateFormat("dd/mm/yyyy"));
     private JFormattedTextField endDate_txt = new JFormattedTextField(new SimpleDateFormat("dd/mm/yyyy"));
     private JTextField price_txt = new JTextField ("Enter the Price per month");
@@ -44,39 +42,31 @@ public class NewPost {
         location.setFont(new Font(null,Font.PLAIN,15));
         location_txt.setBounds(120,65,210,30);
 
-        sublessor.setBounds(47,93,100,50);
-        sublessor.setFont(new Font(null,Font.PLAIN,15));
-        sublessor_txt.setBounds(120,105,210,30);
-
-        startDate.setBounds(50,135,100,50);
+        startDate.setBounds(50,95,100,50);
         startDate.setFont(new Font(null,Font.PLAIN,15));
-        startDate_txt.setBounds(120,145,70,30);
+        startDate_txt.setBounds(120,100,70,30);
         startDate_txt.setText("dd/mm/yyyy");
 
-        endDate.setBounds(195,135,100,50);
+        endDate.setBounds(195,95,100,50);
         endDate.setFont(new Font(null,Font.PLAIN,15));
-        endDate_txt.setBounds(260,145,70,30);
+        endDate_txt.setBounds(260,100,70,30);
         endDate_txt.setText("dd/mm/yyyy");
 
-        price.setBounds(10,170,150,50);
+        price.setBounds(10,125,150,50);
         price.setFont(new Font(null,Font.PLAIN,15));
-        price_txt.setBounds(120,180,210,30);
+        price_txt.setBounds(120,135,210,30);
 
-        description.setBounds(30,220,100,50);
+        description.setBounds(30,155,100,50);
         description.setFont(new Font(null,Font.PLAIN,15));
-        description_txt.setBounds(120,220,210,100);
+        description_txt.setBounds(120,170,210,100);
 
-        submit_btn.setBounds(230,340,100,40);
+        submit_btn.setBounds(230,280,100,40);
         submit_btn.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(new String("Enter Location").equals(location_txt.getText())){
                     JOptionPane.showMessageDialog(frame, "Enter a vaild Location!");
-                    return;
-                }
-                if(new String("Enter Sublessor").equals(sublessor_txt.getText())){
-                    JOptionPane.showMessageDialog(frame, "Enter a vaild Sublessor!");
                     return;
                 }
                 if(!isNumeric(price_txt.getText())){
@@ -88,24 +78,15 @@ public class NewPost {
                     return;
                 }
 
-                String username = sublessor_txt.getText();
                 DatabaseConnection connection = new DatabaseConnection();
-                ArrayList<ArrayList<String>> user_info = connection.retrieveQuery("SELECT user_id, first_name, last_name, email FROM USER WHERE username='"+ username+"';");
 
-                if (user_info != null && user_info.size() != 0){
+                String query = String.format("INSERT INTO USER VALUES(%s,%s,'%s','%s','%s',%s,%s,%s,'%s','%s',%s);",
+                null,curr_user.getUserId(),curr_user.getFirstName(),curr_user.getPassword(),
+                curr_user.getEmail(),startDate_txt.getText(),endDate_txt.getText(),price_txt.getText(),location_txt.getText(),
+                description_txt.getText(),true);
 
-                    String query = String.format("INSERT INTO USER VALUES(%s,%s,'%s','%s','%s',%s,%s,%s,'%s','%s',%s);",
-                    null,user_info.get(0).get(0),user_info.get(0).get(1),user_info.get(0).get(2),
-                    user_info.get(0).get(3),startDate_txt.getText(),endDate_txt.getText(),price_txt.getText(),location_txt.getText(),
-                    description_txt.getText(),true);
-
-                    connection.updateQuery(query);
-                    JOptionPane.showMessageDialog(frame, "Sublet successfully posted.");
-
-                } else {
-                    JOptionPane.showMessageDialog(frame, "Invaild Subleassor\nPlease make sure username is same as Sublessor");
-                    return;
-                }
+                connection.updateQuery(query);
+                JOptionPane.showMessageDialog(frame, "Sublet successfully posted.");
             }
         });
 
@@ -113,13 +94,11 @@ public class NewPost {
             
         frame.add(title);
         frame.add(location);
-        frame.add(sublessor);
         frame.add(startDate);
         frame.add(endDate);
         frame.add(price);
         frame.add(description);
         frame.add(location_txt);
-        frame.add(sublessor_txt);
         frame.add(startDate_txt);
         frame.add(endDate_txt);
         frame.add(price_txt);
@@ -134,7 +113,7 @@ public class NewPost {
     
     }
     public static void main(String[] args) {
-        // NewPost post = new NewPost();
+        NewPost post = new NewPost(new User());
     }
 
     private static boolean isNumeric(String string) {

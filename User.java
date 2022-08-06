@@ -13,6 +13,10 @@ public class User {
     private float rating;
     private int total_ratings;
 
+    public User(){
+        
+    }
+
     public User(int user_id,String username, String password, String email, String first_name, String last_name, 
         String gender, String campus, String date_of_birth, float rating, int total_ratings){
             this.user_id = user_id;

@@ -135,6 +135,6 @@ public class Rate {
         frame.setVisible(true);
     }
     public static void main(String[] args) {
-        //new Rate();
+        new Rate(new User());
     }
 }

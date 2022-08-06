@@ -44,7 +44,7 @@ public class Rent extends JFrame implements ActionListener{
         // Labels and Text Fields
         list.setBounds(50, 75, 300, 50);
         scroll.setBounds(50, 75, 300, 50);
-        get_post.setBounds(50, 310, 100, 20);
+        get_post.setBounds(50, 340, 100, 20);
         get_post.addActionListener(this);
         post_title.setBounds(200, 200, 100, 100);
        
@@ -101,7 +101,7 @@ public class Rent extends JFrame implements ActionListener{
             post_contact.setFont(new Font(null,Font.PLAIN,15));
             frame.add(post_contact);
 
-            rent.setBounds(200, 310, 100, 20);
+            rent.setBounds(200, 340, 100, 20);
             rent.addActionListener(new ActionListener() {
 
                 @Override
@@ -134,7 +134,7 @@ public class Rent extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        // Rent Menu = new Rent();
+        Rent Menu = new Rent(new User());
     }
 
 }
