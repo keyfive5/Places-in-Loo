@@ -90,8 +90,6 @@ public class NewPost {
 
                 String username = sublessor_txt.getText();
                 DatabaseConnection connection = new DatabaseConnection();
-                //ArrayList<ArrayList<String>>  = connection.retrieveQuery(new String("SELECT * FROM USER WHERE" +
-                //                                      " username = '" + username +"';"));
                 ArrayList<ArrayList<String>> user_info = connection.retrieveQuery("SELECT user_id, first_name, last_name, email FROM USER WHERE username='"+ username+"';");
 
                 if (user_info != null && user_info.size() != 0){
@@ -127,9 +125,6 @@ public class NewPost {
         frame.add(price_txt);
         frame.add(description_txt);
         frame.add(submit_btn);
-
-        
-        //frame.add(label);
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(new Color(173, 216, 230));
