@@ -1,9 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Rate {
     private int rating = 0;
+    private ArrayList<ArrayList<String>> user_info;
+    private ArrayList<String> users;
     
     public Rate(User curr_user){
         Icon star = new ImageIcon("./Assets/star.png");
@@ -19,8 +22,17 @@ public class Rate {
         JButton btnSubmit = new JButton("Submit");
         JTextField txtReview = new JTextField("(optional) Enter a review");
 
+        // Populate list with users to rate
+        getUsers();
+        JList list = new JList<>(users.toArray());
+        JScrollPane scroll = new JScrollPane(list);
+        list.setBounds(50, 75, 300, 50);
+        scroll.setBounds(50, 75, 300, 50);
+
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
+
+        frame.add(scroll);
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(null);
@@ -107,7 +119,7 @@ public class Rate {
 
         btnSubmit.setBounds(20,320,100,40);
         btnSubmit.addActionListener(new ActionListener() {
-
+            // Adds a review to the user and updates the database
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(rating == 0){
@@ -123,6 +135,8 @@ public class Rate {
                 } else {
                     System.out.printf(txtReview.getText());
                 }
+
+                JOptionPane.showMessageDialog(frame, "Rating successful!");
             }
         });
         panel.add(btnSubmit);
@@ -133,6 +147,18 @@ public class Rate {
         frame.setTitle("Rating");
         frame.setVisible(true);
     }
+
+    private void getUsers(){
+        DatabaseConnection connection = new DatabaseConnection();
+        user_info = connection.retrieveQuery("SELECT DISTINCT user_id, first_name, last_name FROM POSTS;");
+
+        users = new ArrayList<String>();
+
+        for (int i=0; i < user_info.size();i++){
+            users.add(user_info.get(i).get(2) + ", " + user_info.get(i).get(1));
+        }
+    }
+
     public static void main(String[] args) {
         new Rate(new User());
     }

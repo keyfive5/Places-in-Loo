@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class NewPost {
     private JFrame frame = new JFrame();
@@ -13,8 +12,8 @@ public class NewPost {
     private JLabel price = new JLabel("Price per month");
     private JLabel description = new JLabel ("Description");
     private JTextField location_txt = new JTextField ("Enter Location");
-    private JFormattedTextField startDate_txt = new JFormattedTextField(new SimpleDateFormat("dd/mm/yyyy"));
-    private JFormattedTextField endDate_txt = new JFormattedTextField(new SimpleDateFormat("dd/mm/yyyy"));
+    private JFormattedTextField startDate_txt = new JFormattedTextField(new SimpleDateFormat("yyyy-mm-dd"));
+    private JFormattedTextField endDate_txt = new JFormattedTextField(new SimpleDateFormat("yyyy-mm-dd"));
     private JTextField price_txt = new JTextField ("Enter the Price per month");
     private JTextField description_txt = new JTextField("Enter Description");
     private JButton submit_btn = new JButton ("Submit");
@@ -42,15 +41,15 @@ public class NewPost {
         location.setFont(new Font(null,Font.PLAIN,15));
         location_txt.setBounds(120,65,210,30);
 
-        startDate.setBounds(50,95,100,50);
+        startDate.setBounds(50,90,100,50);
         startDate.setFont(new Font(null,Font.PLAIN,15));
         startDate_txt.setBounds(120,100,70,30);
-        startDate_txt.setText("dd/mm/yyyy");
+        startDate_txt.setText("yyyy-mm-dd");
 
-        endDate.setBounds(195,95,100,50);
+        endDate.setBounds(195,90,100,50);
         endDate.setFont(new Font(null,Font.PLAIN,15));
         endDate_txt.setBounds(260,100,70,30);
-        endDate_txt.setText("dd/mm/yyyy");
+        endDate_txt.setText("yyyy-mm-dd");
 
         price.setBounds(10,125,150,50);
         price.setFont(new Font(null,Font.PLAIN,15));
@@ -80,10 +79,11 @@ public class NewPost {
 
                 DatabaseConnection connection = new DatabaseConnection();
 
-                String query = String.format("INSERT INTO USER VALUES(%s,%s,'%s','%s','%s',%s,%s,%s,'%s','%s',%s);",
-                null,curr_user.getUserId(),curr_user.getFirstName(),curr_user.getPassword(),
+                String query = String.format("INSERT INTO POSTS VALUES(%s,%s,'%s','%s','%s','%s','%s',%s,'%s','%s',%s);",
+                null,curr_user.getUserId(),curr_user.getFirstName(),curr_user.getLastName(),
                 curr_user.getEmail(),startDate_txt.getText(),endDate_txt.getText(),price_txt.getText(),location_txt.getText(),
                 description_txt.getText(),true);
+                System.out.println(query);
 
                 connection.updateQuery(query);
                 JOptionPane.showMessageDialog(frame, "Sublet successfully posted.");
