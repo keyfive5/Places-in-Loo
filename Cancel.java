@@ -44,7 +44,7 @@ public class Cancel {
         frame.setLayout(null);
         frame.setVisible(true);
 
-    return;
+        return;
     }
 
     public static void main(String[] args) {

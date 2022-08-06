@@ -8,9 +8,11 @@ public class User {
     private String gender;
     private String campus;
     private String date_of_birth;
+    private float rating;
+    private int total_ratings;
 
     public User(int user_id,String username, String password, String email, String first_name, String last_name, 
-        String gender, String campus, String date_of_birth){
+        String gender, String campus, String date_of_birth, float rating, int total_ratings){
             this.user_id = user_id;
             this.username = username;
             this.password = password;
@@ -20,6 +22,8 @@ public class User {
             this.gender = gender;
             this.campus = campus;
             this.date_of_birth = date_of_birth;
+            this.rating = rating;
+            this.total_ratings = total_ratings;
     }
 
     public int getUserId(){
@@ -56,5 +60,13 @@ public class User {
 
     public String getDateOfBirth(){
         return this.date_of_birth;
+    }
+
+    public float getRating(){
+        return this.rating;
+    }
+
+    public int getTotalRatings(){
+        return this.total_ratings;
     }
 }
