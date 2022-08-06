@@ -53,7 +53,7 @@ public class LoginGUI extends JFrame {
                 if (user_info != null && user_info.size() != 0){
                     User curr_user = new User(user_info);
                     setVisible(false);
-                    MainMenu Menu = new MainMenu(); 
+                    MainMenu Menu = new MainMenu(curr_user); 
                 } else {
                     JOptionPane.showMessageDialog(panel_contents, "Login credentials incorrect. Please try again.");
                 }

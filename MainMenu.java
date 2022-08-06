@@ -10,14 +10,26 @@ public class MainMenu extends JFrame implements ActionListener{
     private JButton rateButton = new JButton("Rate a Sublet");
     private JButton logoutButton = new JButton("Logout");
     private JLabel title = new JLabel("Main Page");
+    private JLabel welcome;
+    private User curr_user;
 
     // Intialize
-    public MainMenu() {
+    public MainMenu(User current_user) {
+        this.curr_user = current_user;
+
+        // Labels
         title.setHorizontalAlignment(JLabel.CENTER);
         title.setFont(new Font("Calibri", Font.BOLD, 45));
-        title.setBounds(100,100,1000,60);
+        title.setBounds(100,50,1000,60);
         title.setFocusable(false);
-        // Labels and Text Fields
+
+        welcome = new JLabel("Welcome back " + curr_user.getUsername() + "!");
+        welcome.setHorizontalAlignment(JLabel.CENTER);
+        welcome.setFont(new Font("Calibri", NORMAL, 24));
+        welcome.setBounds(100,100,1000,60);
+        welcome.setFocusable(false);
+
+        // Buttons
         postButton.setBounds(200,160,200,60);
         postButton.setFocusable(false);
         postButton.addActionListener(this);
@@ -44,6 +56,7 @@ public class MainMenu extends JFrame implements ActionListener{
         frame.add(rateButton);
         frame.add(logoutButton);
         frame.add(title);
+        frame.add(welcome);
         
         frame.getContentPane().setBackground(new Color(173, 216, 230));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,19 +69,19 @@ public class MainMenu extends JFrame implements ActionListener{
   
         if(e.getSource()==postButton) {
             frame.dispose();
-            NewPost post = new NewPost();
+            NewPost post = new NewPost(curr_user);
         }
         else if(e.getSource()==rentButton){
             frame.dispose();
-            Rent rent = new Rent();
+            Rent rent = new Rent(curr_user);
         }
         else if(e.getSource()==cancelButton){
             frame.dispose();
-            Cancel cancel = new Cancel();
+            Cancel cancel = new Cancel(curr_user);
         }
         else if(e.getSource()==rateButton){
             frame.dispose();
-            Rate rate = new Rate();
+            Rate rate = new Rate(curr_user);
         }
         else if(e.getSource()==logoutButton){
             frame.dispose();
@@ -78,7 +91,7 @@ public class MainMenu extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        MainMenu Menu = new MainMenu();
+        //MainMenu Menu = new MainMenu(curr_user);
     }
 
 }

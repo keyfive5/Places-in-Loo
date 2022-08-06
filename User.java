@@ -42,17 +42,6 @@ public class User {
             this.date_of_birth = user.get(0).get(8);
             this.rating = Float.parseFloat(user.get(0).get(9));
             this.total_ratings = Integer.parseInt(user.get(0).get(10));
-            System.out.println(this.user_id);
-            System.out.println(this.username);
-            System.out.println(this.password);
-            System.out.println(this.email);
-            System.out.println(this.first_name);
-            System.out.println(this.last_name);
-            System.out.println(this.gender);
-            System.out.println(this.campus);
-            System.out.println(this.date_of_birth);
-            System.out.println(this.rating);
-            System.out.println(this.total_ratings);
         }
     }
 

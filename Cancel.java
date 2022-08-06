@@ -9,7 +9,7 @@ public class Cancel {
     private Icon home = new ImageIcon("./Assets/home.png");
     private JButton home_btn = new JButton(home);
     
-    Cancel(){
+    public Cancel(User curr_user){
         home_btn.setBounds(5,5,32,32);
         home_btn.setBorder(null);
         home_btn.setBackground(null);
@@ -18,7 +18,7 @@ public class Cancel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                MainMenu Menu = new MainMenu();
+                MainMenu Menu = new MainMenu(curr_user);
             }
         });
         frame.add(home_btn);    
@@ -48,6 +48,6 @@ public class Cancel {
     }
 
     public static void main(String[] args) {
-        new Cancel();
+        // new Cancel();
     }
 }

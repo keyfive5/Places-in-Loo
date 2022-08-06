@@ -20,7 +20,7 @@ public class Rent extends JFrame implements ActionListener{
    
     
     // Intialize
-    Rent() {
+    public Rent(User curr_user) {
         getListings();
         list = new JList<>(rentals.toArray());
         scroll = new JScrollPane(list);
@@ -33,7 +33,7 @@ public class Rent extends JFrame implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                MainMenu Menu = new MainMenu();
+                MainMenu Menu = new MainMenu(curr_user);
             }
         });
         frame.add(btnHome);
@@ -134,7 +134,7 @@ public class Rent extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        Rent Menu = new Rent();
+        // Rent Menu = new Rent();
     }
 
 }

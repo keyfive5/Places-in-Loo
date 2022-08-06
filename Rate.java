@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Rate {
     private int rating = 0;
     
-    Rate(){
+    public Rate(User curr_user){
         Icon star = new ImageIcon("./Assets/star.png");
         Icon home = new ImageIcon("./Assets/home.png");
         JButton btnHome = new JButton(home);
@@ -35,7 +35,7 @@ public class Rate {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                MainMenu Menu = new MainMenu();
+                MainMenu Menu = new MainMenu(curr_user);
             }
         });
         panel.add(btnHome);
@@ -135,6 +135,6 @@ public class Rate {
         frame.setVisible(true);
     }
     public static void main(String[] args) {
-        new Rate();
+        //new Rate();
     }
 }
