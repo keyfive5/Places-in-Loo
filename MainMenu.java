@@ -23,7 +23,7 @@ public class MainMenu extends JFrame implements ActionListener{
         title.setBounds(100,50,1000,60);
         title.setFocusable(false);
 
-        welcome = new JLabel("Welcome back " + curr_user.getUsername() + "!");
+        welcome = new JLabel("Welcome back " + curr_user.getFirstName() + "!");
         welcome.setHorizontalAlignment(JLabel.CENTER);
         welcome.setFont(new Font("Calibri", NORMAL, 24));
         welcome.setBounds(100,100,1000,60);
