@@ -8,15 +8,15 @@ import javax.swing.*;
 
 public class CreateAccount extends JFrame {
     private JTextField username, password, email, first_name, last_name, gender, campus, date_of_birth;
-    private JLabel ca;
+    private JLabel title;
     private JButton submit_btn, back_btn; 
 
     // Intialize
     public CreateAccount () {
         // Title Label
-        ca = new JLabel("Create Account");
-        ca.setBounds(100,10,1000,60);
-        ca.setFont(new Font("Calibri", Font.BOLD, 45));
+        title = new JLabel("Create Account");
+        title.setBounds(100,10,1000,60);
+        title.setFont(new Font("Calibri", Font.BOLD, 45));
 
         // Labels and Text Fields
         JLabel username_label = new JLabel("Username");
@@ -86,7 +86,7 @@ public class CreateAccount extends JFrame {
         frame.add(campus);
         frame.add(date_of_birth_label);
         frame.add(date_of_birth);
-        frame.add(ca);        
+        frame.add(title);        
 
         // Buttons
         submit_btn = new JButton("Submit");
