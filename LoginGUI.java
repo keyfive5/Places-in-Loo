@@ -47,9 +47,11 @@ public class LoginGUI extends JFrame {
                 String pass = tfpassword.getText();    
 
                 DatabaseConnection connection = new DatabaseConnection();
-                ArrayList<ArrayList<String>> user_info = connection.retrieveQuery(String.format("SELECT user_id FROM USER WHERE" +
+                ArrayList<ArrayList<String>> user_info = connection.retrieveQuery(String.format("SELECT * FROM USER WHERE" +
                                                         " username = '%s' AND password = '%s'", user,pass));
+                // Check if user exists in database
                 if (user_info != null && user_info.size() != 0){
+                    User user = new User(user_info)
                     setVisible(false);
                     MainMenu Menu = new MainMenu(); 
                 } else {

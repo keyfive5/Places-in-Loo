@@ -22,10 +22,6 @@ public class Rent extends JFrame implements ActionListener{
     
     // Intialize
     Rent() {
-        /*rentals.add("id:1, 24 Hickory Street");
-        rentals.add("id:2, 35 Lester");
-        rentals.add("id:3, 224 University Avenue");
-        rentals.add("id:4, 232 Weber Street");*/
         getListings();
         list = new JList<>(rentals.toArray());
         scroll = new JScrollPane(list);
@@ -69,9 +65,6 @@ public class Rent extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == get_post){
-            //frame.remove(info);
-            //System.out.println(list.getSelectedValue());
-
             int post_location = list.getSelectedIndex();
             post_title.setText(rentals.get(post_location));
             post_title.setBounds(50, 100, 1000, 100);
