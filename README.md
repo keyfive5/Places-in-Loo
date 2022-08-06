@@ -48,6 +48,7 @@ SQLite JDBC connector (located in the driver folder)
 - Add rating to user
 
 # Changed features from SDD
+During our implementation, we noticed some details from the SDD were not practical and have made the following changes:
 - No longer distinguishing between Subtenant and Sublessor, a User of the app can be both at the same time and should have access to both features
 - Added "available" field to "Posting" class to keep track of when a posting is still available
 - Added "rating" and "total_ratings" to keep track of ratings on a User and be able to update the ratings of a User
