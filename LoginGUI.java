@@ -65,7 +65,7 @@ public class LoginGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 // Move to Create Account Page
-                CreateAccount.call_create_acct();
+                CreateAccount ca = new CreateAccount();
                 setVisible(false);
             }
         });

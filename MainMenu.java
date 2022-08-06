@@ -12,7 +12,7 @@ public class MainMenu extends JFrame implements ActionListener{
     private JLabel title = new JLabel("Main Page");
 
     // Intialize
-    MainMenu() {
+    public MainMenu() {
         title.setHorizontalAlignment(JLabel.CENTER);
         title.setFont(new Font("Calibri", Font.BOLD, 45));
         title.setBounds(100,100,1000,60);
