@@ -29,7 +29,7 @@ To check if you completed the steps correctly, run the **ConnectionExample.java*
 If you are receiving an error , follow the **Troubleshooting** section found at the end of this README
 
 # Running the app
-To run the app, run the **Start.java** file
+To run the app, run the **Start.java** file by either right clicking the Start.java file, then select "Run Java" (recommended method), or by clicking the Play button at the top right of the editor.
 
 # Features that we have completed completed
 - Create account
@@ -41,20 +41,32 @@ To run the app, run the **Start.java** file
 SQLite JDBC connector (located in the driver folder)
 
 # To-do
-- Main Menu -> Add "View My Postings" options (to view your current postings, add a "Mark as rented" button to change availability of sublet)
-- Backend for View Available Postings (only show "available" Postings)
-- Posting class (from SDD)
-- Add "Back" button to all GUI
-- Add "Logout" button in Main menu that goes back to Login page
+- Add comments
+- Keep track of current user
+- Cancel sublet, allow to view postings
+- Add ratings when viewing posting
+- Add rating to user
 
-Features to add if there is extra time
-- Message function
-- Rating system
+# Changed features from SDD
+- No longer distinguishing between Subtenant and Sublessor, a User of the app can be both at the same time and should have access to both features
+- Added "available" field to "Posting" class to keep track of when a posting is still available
+- Added "rating" and "total_ratings" to keep track of ratings on a User and be able to update the ratings of a User
+- "Rating" class removed, since it will just be stored as a field in the User class
 
-# Changed features
 
 # Removed Features
 Due to time constraints, we have decided not to implement the following features listed in the Software Design Document
+- Message Function, currently displays a message but does not message anyone
+- Message class therefore not implemented since this feature was not implemented
+
+# File explaination
+All the files in the sql folder are the files ran to create and modify the initial database. They are only there to show how they were created and are not needed to run the actual implementation.
+
+Start.java - The main java file, runs the LoginGUI class
+<br>
+LoginGUI.java - The file that creates the login page and deals with the login page backend
+<br>
+CreateAccount.java - The file that creates the create account page and deals with the create account backend
 
 # Troubleshooting
 Conflicting Extensions:
