@@ -65,7 +65,6 @@ public class LoginGUI extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
                 // Move to Create Account Page
                 CreateAccount ca = new CreateAccount();
                 setVisible(false);
@@ -87,7 +86,6 @@ public class LoginGUI extends JFrame {
         panel_background.add(places, BorderLayout.PAGE_START);
         panel_background.add(btnPanel, BorderLayout.SOUTH);
        
-
         add(panel_background);
 
         // Size and Visibility

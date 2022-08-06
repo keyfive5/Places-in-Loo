@@ -23,7 +23,6 @@ public class Rate {
         JPanel panel = new JPanel();
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        //panel.setLayout(new GridLayout(4,1));
         panel.setLayout(null);
         panel.setBackground(new Color(173, 216, 230));
 

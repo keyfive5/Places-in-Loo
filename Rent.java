@@ -11,7 +11,7 @@ public class Rent extends JFrame implements ActionListener{
     private ArrayList<ArrayList<String>> rental_info;
     private JList list;
     private JLabel post_title = new JLabel(), post_desc = new JLabel(), post_start = new JLabel(), 
-        post_end = new JLabel(), post_price = new JLabel(), post_sublessor = new JLabel(), post_contact = new JLabel();
+        post_end = new JLabel(), post_price = new JLabel(), post_sublessor = new JLabel(), post_contact = new JLabel(), post_rating = new JLabel();
     private JScrollPane scroll;
     private JButton get_post = new JButton("Get Post");
     private JButton rent = new JButton("Rent");
@@ -52,12 +52,10 @@ public class Rent extends JFrame implements ActionListener{
         frame.add(scroll);
         frame.add(get_post);
         frame.add (post_title);
-
-       
         
         frame.getContentPane().setBackground(new Color(173, 216, 230));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420,420);
+        frame.setSize(620,420);
         frame.setLayout(null);
         frame.setVisible(true);
 
@@ -65,6 +63,10 @@ public class Rent extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == get_post){
             int post_location = list.getSelectedIndex();
+            DatabaseConnection connection = new DatabaseConnection();
+            ArrayList<ArrayList<String>> result;
+            String rating;
+
             post_title.setText(rentals.get(post_location));
             post_title.setBounds(50, 100, 1000, 100);
             post_title.setFont(new Font("Verdana", Font.PLAIN, 20));;
@@ -100,6 +102,19 @@ public class Rent extends JFrame implements ActionListener{
             post_contact.setBounds(50, 240, 1000, 100);
             post_contact.setFont(new Font(null,Font.PLAIN,15));
             frame.add(post_contact);
+            
+            // Get posting users rating
+            result = connection.retrieveQuery("SELECT rating FROM USER WHERE user_id=" + rental_info.get(post_location).get(1));
+            rating = result.get(0).get(0);
+            // If there is no rating, print null
+            if (rating.equals("-1")){
+                rating = "No ratings yet";
+            }
+
+            post_rating.setText("Rating: " + rating);
+            post_rating.setBounds(50, 260, 1000, 100);
+            post_rating.setFont(new Font(null,Font.PLAIN,15));
+            frame.add(post_rating);
 
             rent.setBounds(200, 340, 100, 20);
             rent.addActionListener(new ActionListener() {
