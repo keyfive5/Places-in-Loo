@@ -67,6 +67,19 @@ Start.java - The main java file, runs the LoginGUI class
 LoginGUI.java - The file that creates the login page and deals with the login page backend
 <br>
 CreateAccount.java - The file that creates the create account page and deals with the create account backend
+<br>
+MainMenu.java - The file that displays the different pages and provides links to them
+<br>
+NewPost.java - The file that allows user to add a new posting, and connects to the backend to add the posting to the database
+<br>
+Rent.java - The file that queries the database to display a list of available postings
+<br>
+Rate.java - The file that allows users to rate their previous sublet accomodation out of a scale from 1-5 and add an optional review
+<br>
+Cancel.java - The file that allows users to cancel their current sublet
+<br>
+User.java - The file that contains the User class and deals with the back-end
+
 
 # Troubleshooting
 Conflicting Extensions:
