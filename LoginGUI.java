@@ -51,7 +51,7 @@ public class LoginGUI extends JFrame {
                                                         " username = '%s' AND password = '%s'", user,pass));
                 // Check if user exists in database
                 if (user_info != null && user_info.size() != 0){
-                    User user = new User(user_info)
+                    User curr_user = new User(user_info);
                     setVisible(false);
                     MainMenu Menu = new MainMenu(); 
                 } else {

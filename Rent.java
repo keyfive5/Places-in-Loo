@@ -7,7 +7,6 @@ public class Rent extends JFrame implements ActionListener{
     private JFrame frame = new JFrame();
    
     private JLabel title = new JLabel("For Rent");
-    //private String rentals [] = {"id:1, 24 Hickory Street", "id:2, 35 Lester", "id:3, 224 University Avenue","id:4, 232 Weber Street"};
     private ArrayList<String> rentals;
     private ArrayList<ArrayList<String>> rental_info;
     private JList list;

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class User {
     private int user_id;
     private String username;
@@ -24,6 +26,34 @@ public class User {
             this.date_of_birth = date_of_birth;
             this.rating = rating;
             this.total_ratings = total_ratings;
+    }
+
+    // Overloaded constructor to get variables from database input
+    public User(ArrayList<ArrayList<String>> user){
+        if (user.size() > 0 && user.get(0).size() == 11){
+            this.user_id = Integer.parseInt(user.get(0).get(0));
+            this.username = user.get(0).get(1);
+            this.password = user.get(0).get(2);
+            this.email = user.get(0).get(3);
+            this.first_name = user.get(0).get(4);
+            this.last_name = user.get(0).get(5);
+            this.gender = user.get(0).get(6);
+            this.campus = user.get(0).get(7);
+            this.date_of_birth = user.get(0).get(8);
+            this.rating = Float.parseFloat(user.get(0).get(9));
+            this.total_ratings = Integer.parseInt(user.get(0).get(10));
+            System.out.println(this.user_id);
+            System.out.println(this.username);
+            System.out.println(this.password);
+            System.out.println(this.email);
+            System.out.println(this.first_name);
+            System.out.println(this.last_name);
+            System.out.println(this.gender);
+            System.out.println(this.campus);
+            System.out.println(this.date_of_birth);
+            System.out.println(this.rating);
+            System.out.println(this.total_ratings);
+        }
     }
 
     public int getUserId(){
