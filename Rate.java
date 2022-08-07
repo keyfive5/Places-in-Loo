@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class Rate {
-    private int rating = 0;
+    private float rating = 0;
     private ArrayList<ArrayList<String>> user_info;
     private ArrayList<String> users;
+    private User curr_user;
     
-    public Rate(User curr_user){
+    public Rate(User current_user){
         Icon star = new ImageIcon("./Assets/star.png");
         Icon home = new ImageIcon("./Assets/home.png");
         JButton btnHome = new JButton(home);
@@ -22,12 +23,15 @@ public class Rate {
         JButton btnSubmit = new JButton("Submit");
         JTextField txtReview = new JTextField("(optional) Enter a review");
 
+        // Fill in who is current user
+        curr_user = current_user;
+
         // Populate list with users to rate
         getUsers();
         JList list = new JList<>(users.toArray());
         JScrollPane scroll = new JScrollPane(list);
-        list.setBounds(50, 75, 300, 50);
-        scroll.setBounds(50, 75, 300, 50);
+        list.setBounds(50, 25, 300, 50);
+        scroll.setBounds(50, 25, 300, 50);
 
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
@@ -51,11 +55,11 @@ public class Rate {
         });
         panel.add(btnHome);
         
-        lblQuest.setBounds(50,30,500,25);
+        lblQuest.setBounds(50,80,500,25);
         lblQuest.setFont(new Font(null,Font.PLAIN,15));
         panel.add(lblQuest);
 
-        btnRate1.setBounds(80,60,32,32);
+        btnRate1.setBounds(80,110,32,32);
         btnRate1.addActionListener(new ActionListener() {
 
             @Override
@@ -66,7 +70,7 @@ public class Rate {
         });
         panel.add(btnRate1);
 
-        btnRate2.setBounds(130,60,32,32);
+        btnRate2.setBounds(130,110,32,32);
         btnRate2.addActionListener(new ActionListener() {
 
             @Override
@@ -77,7 +81,7 @@ public class Rate {
         });
         panel.add(btnRate2);
 
-        btnRate3.setBounds(180,60,32,32);
+        btnRate3.setBounds(180,110,32,32);
         btnRate3.addActionListener(new ActionListener() {
 
             @Override
@@ -88,7 +92,7 @@ public class Rate {
         });
         panel.add(btnRate3);
 
-        btnRate4.setBounds(230,60,32,32);
+        btnRate4.setBounds(230,110,32,32);
         btnRate4.addActionListener(new ActionListener() {
 
             @Override
@@ -99,7 +103,7 @@ public class Rate {
         });
         panel.add(btnRate4);
 
-        btnRate5.setBounds(280,60,32,32);
+        btnRate5.setBounds(280,110,32,32);
         btnRate5.addActionListener(new ActionListener() {
 
             @Override
@@ -110,11 +114,11 @@ public class Rate {
         });
         panel.add(btnRate5);
 
-        lblCurrent.setBounds(160,93,500,25);
+        lblCurrent.setBounds(160,143,500,25);
         lblCurrent.setFont(new Font(null,Font.PLAIN,11));
         panel.add(lblCurrent);
 
-        txtReview.setBounds(20,125,360,180);
+        txtReview.setBounds(20,175,360,120);
         panel.add(txtReview);
 
         btnSubmit.setBounds(20,320,100,40);
@@ -122,21 +126,37 @@ public class Rate {
             // Adds a review to the user and updates the database
             @Override
             public void actionPerformed(ActionEvent e) {
+                int user_location = list.getSelectedIndex();
+                DatabaseConnection conn;
+                ArrayList<ArrayList<String>> result;
+                float avgRating;
+                float oldRating;
+                int total_ratings = 0;
                 if(rating == 0){
                     JOptionPane.showMessageDialog(frame, "Select a rating from 1 - 5");
                 }
-                DatabaseConnection conn = new DatabaseConnection();
-                float avgRating;
+                conn = new DatabaseConnection();
                 avgRating = rating;
 
-                
+                result = conn.retrieveQuery("SELECT rating,total_ratings FROM USER WHERE user_id=" + user_info.get(user_location).get(0));
+                oldRating = Integer.parseInt(result.get(0).get(0));
+                total_ratings = Integer.parseInt(result.get(0).get(1));
+                // Update rating to new average rating if there was previous ratings
+                if (oldRating != -1){
+                    rating = ((oldRating * total_ratings) + rating) / (total_ratings + 1);
+                }
+                total_ratings += 1;
+
+                conn.updateQuery("UPDATE USER SET rating = " + rating + ", total_ratings = " + total_ratings +
+                     " WHERE user_id=" + user_info.get(user_location).get(0));
+
+                JOptionPane.showMessageDialog(frame, "Rating successful!");
+
                 if (new String("(optional) Enter a review").equals(txtReview.getText())){
                     return;
                 } else {
                     System.out.printf(txtReview.getText());
                 }
-
-                JOptionPane.showMessageDialog(frame, "Rating successful!");
             }
         });
         panel.add(btnSubmit);
@@ -150,7 +170,8 @@ public class Rate {
 
     private void getUsers(){
         DatabaseConnection connection = new DatabaseConnection();
-        user_info = connection.retrieveQuery("SELECT DISTINCT user_id, first_name, last_name FROM POSTS;");
+        user_info = connection.retrieveQuery("SELECT DISTINCT user_id, first_name, last_name FROM POSTS WHERE NOT user_id = " +
+                             curr_user.getUserId() + ";");
 
         users = new ArrayList<String>();
 
