@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Cancel {
     private JFrame frame = new JFrame();
-    private JLabel label = new JLabel("<html>Are sure you want to cancel your<br>current sublet?</html>",SwingConstants.CENTER);
+    private JLabel label = new JLabel("<html>Select a sublet<br>to cancel</html>",SwingConstants.CENTER);
     private JButton cancel_btn = new JButton("Cancel");
     private Icon home = new ImageIcon("./Assets/home.png");
     private JButton home_btn = new JButton(home);
