@@ -25,10 +25,12 @@ public class Rent extends JFrame implements ActionListener{
         // Set current user
         curr_user = current_user;
 
+        // Get current listings that are not your own and populate the list
         getListings();
         list = new JList<>(rentals.toArray());
         scroll = new JScrollPane(list);
 
+        // Home button to return to Main menu
         btnHome.setBounds(5,5,32,32);
         btnHome.setBorder(null);
         btnHome.setBackground(null);
@@ -130,6 +132,9 @@ public class Rent extends JFrame implements ActionListener{
 
                     if(update){
                         JOptionPane.showMessageDialog(frame, "Sublet is now pending.\nPlease contact the sublessor to confirm the sublet");
+                        // Return to Main Menu
+                        frame.dispose();
+                        MainMenu Menu = new MainMenu(curr_user);
                     } else{
                         JOptionPane.showMessageDialog(frame, "An Error has occured!\nPlease try again or contact support.");
                     }

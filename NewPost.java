@@ -21,6 +21,8 @@ public class NewPost {
     private JButton home_btn = new JButton(home);
  
     public NewPost(User curr_user){
+
+        // Home button to return to main menu
         home_btn.setBounds(5,5,32,32);
         home_btn.setBorder(null);
         home_btn.setBackground(null);

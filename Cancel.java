@@ -21,6 +21,7 @@ public class Cancel {
         // Set current user
         curr_user = current_user;
 
+        // Home button to return to main menu
         home_btn.setBounds(5,5,32,32);
         home_btn.setBorder(null);
         home_btn.setBackground(null);
@@ -33,6 +34,7 @@ public class Cancel {
             }
         });  
     
+        // Get all your postings and populate it into the list
         getPostings();
         list = new JList<>(posts.toArray());
         scroll = new JScrollPane(list);
@@ -51,6 +53,10 @@ public class Cancel {
                 DatabaseConnection connection = new DatabaseConnection();
                 connection.updateQuery("UPDATE POSTS SET available=false WHERE post_id="+posts_info.get(post_location).get(0)+";");
                 JOptionPane.showMessageDialog(frame, "Your sublet has been canceled.");
+
+                // Return to Main Menu
+                frame.dispose();
+                MainMenu Menu = new MainMenu(curr_user);
             }
         });
         

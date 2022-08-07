@@ -43,6 +43,7 @@ public class Rate {
         panel.setLayout(null);
         panel.setBackground(new Color(173, 216, 230));
 
+        // Home button to return to main menu
         btnHome.setBounds(5,5,32,32);
         btnHome.setBorder(null);
         btnHome.setBackground(null);
