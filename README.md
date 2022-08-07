@@ -28,8 +28,34 @@ To check if you completed the steps correctly, run the **ConnectionExample.java*
 
 If you are receiving an error , follow the **Troubleshooting** section found at the end of this README
 
-# Running the app
+# How to use
 To run the app, run the **Start.java** file by either right clicking the Start.java file, then select "Run Java" (recommended method), or by clicking the Play button at the top right of the editor.
+
+## Login
+When you first open the app, you will be directed to the login screen. If you made an account previously, simply enter your username and password and click login. 
+You can also use this dummy account used for testing:
+- Username: caix3600
+- Password: password
+
+Otherwise, you can click the "Create Account" button to create an account.
+
+## Create Account
+Simply fill in the fields and click "Submit". Because we only want students from Wilfrid Laurier University and University of Waterloo using our app, we have made a special restriction where you must use an email ending in "mylaurier.ca" or "uwaterloo.ca". Usernames must also be unique, meaning if a username already exists in the database then the app will not allow you to use the same username.
+
+## Main Menu
+Once you have logged in, you will have access to 4 different options. You can click either of the buttons to go straight to each option. There is also a "Logout" button at the bottom right corner to logout and login with a different account. The 4 main options will be covered in the next sections. 
+
+## Post a sublet
+The main feature of our app is to be able to "Post a sublet". You can enter the details of your sublet and press submit, and a posting will be generated under your name. If you wish to go back to the Main Menu, simply click on the "Home" icon on the top left corner.
+
+## Rent a sublet
+Here, you will be able to see all available sublets. Hoever, since there is no point in subletting your own sublet, you cannot see your own sublet postings in this function. If you wish to see your own sublet postings, head over to the next section. You can click on the name of location you want to sublet and press the "Get Post" button on the bottom to display the sublet details. If the details are satisfactory, you can click on the "Rent" button at the bottom to rent the sublet. We currently only have the sublet posting disappear on clicking the "Rent" button but it does not notify the sublessor, which is for a future implementation. **Note**: No postings will show up if there are no available posting. If you wish to go back to the Main Menu, simply click on the "Home" icon on the top left corner.
+
+## Cancel a sublet
+Here, you can view your own sublets that you have posted. If you have been reached out by someone asking to sublet and you agree, you can remove your sublet here from available postings so that it will no longer show up under "Rent a sublet". To cancel a posting, click on the posting you wish to remove and click Cancel button. **Note**: No postings will show up if you do not have an available posting. If you wish to go back to the Main Menu, simply click on the "Home" icon on the top left corner.
+
+## Rate a sublet
+Here, you can rate any sublessor that has previously made a posting. You can click on the sublessors name to select which one you want to rate, then click on the stars to select a rating and finally select the "Submit" button. This will update the average ratings of that sublessor in the database, where there ratings can be seen when you click on any of the sublessors postings in the "Rent a sublet" section. **Note**: you cannot rate yourself, which is why your own name will not appear in the rating section. If you wish to go back to the Main Menu, simply click on the "Home" icon on the top left corner.
 
 # Features that we have completed completed
 - Create account
