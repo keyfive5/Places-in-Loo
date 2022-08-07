@@ -29,7 +29,7 @@ public class MainMenu extends JFrame implements ActionListener{
         welcome.setBounds(100,100,1000,60);
         welcome.setFocusable(false);
 
-        // Buttons
+        // Buttons and Listeners to respond when clicked
         postButton.setBounds(200,160,200,60);
         postButton.setFocusable(false);
         postButton.addActionListener(this);
@@ -50,6 +50,7 @@ public class MainMenu extends JFrame implements ActionListener{
         logoutButton.setFocusable(false);
         logoutButton.addActionListener(this);
 
+        // Adds all the objects to the frame
         frame.add(postButton);
         frame.add(rentButton);
         frame.add(cancelButton);
@@ -65,6 +66,7 @@ public class MainMenu extends JFrame implements ActionListener{
         frame.setVisible(true);
 
     }
+    // Go to a different page depending on the button pressed
     public void actionPerformed(ActionEvent e) {
   
         if(e.getSource()==postButton) {
