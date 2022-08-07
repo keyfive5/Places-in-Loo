@@ -110,7 +110,7 @@ public class Rent extends JFrame implements ActionListener{
             // Get posting users rating
             result = connection.retrieveQuery("SELECT rating FROM USER WHERE user_id=" + rental_info.get(post_location).get(1));
             rating = result.get(0).get(0);
-            // If there is no rating, print null
+            // If there is no rating, print "No ratings yet"
             if (rating.equals("-1")){
                 rating = "No ratings yet";
             }
