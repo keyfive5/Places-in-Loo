@@ -8,6 +8,9 @@ public class Cancel {
     private JButton cancel_btn = new JButton("Cancel");
     private Icon home = new ImageIcon("./Assets/home.png");
     private JButton home_btn = new JButton(home);
+    private JList list;
+    private JScrollPane scroll;
+
     
     public Cancel(User curr_user){
         home_btn.setBounds(5,5,32,32);
@@ -23,6 +26,12 @@ public class Cancel {
         });
         frame.add(home_btn);    
     
+        //getPosts();
+        //list = new JList<>(users.toArray());
+        scroll = new JScrollPane(list);
+        list.setBounds(50, 25, 300, 50);
+        scroll.setBounds(50, 25, 300, 50);
+
         label.setBounds(20,30,400,100);
         label.setFont(new Font(null,Font.PLAIN,25));
 

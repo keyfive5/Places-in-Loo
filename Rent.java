@@ -17,10 +17,14 @@ public class Rent extends JFrame implements ActionListener{
     private JButton rent = new JButton("Rent");
     private Icon home = new ImageIcon("./Assets/home.png");
     private JButton btnHome = new JButton(home);
+    private User curr_user;
    
     
     // Intialize
-    public Rent(User curr_user) {
+    public Rent(User current_user) {
+        // Set current user
+        curr_user = current_user;
+
         getListings();
         list = new JList<>(rentals.toArray());
         scroll = new JScrollPane(list);
@@ -139,7 +143,7 @@ public class Rent extends JFrame implements ActionListener{
 
     private void getListings(){
         DatabaseConnection connection = new DatabaseConnection();
-        rental_info = connection.retrieveQuery("SELECT * FROM POSTS WHERE available=true;");
+        rental_info = connection.retrieveQuery("SELECT * FROM POSTS WHERE available=true and NOT user_id = " + curr_user.getUserId());
 
         rentals = new ArrayList<String>();
 

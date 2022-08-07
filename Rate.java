@@ -27,6 +27,9 @@ public class Rate {
         JList list;
         JScrollPane scroll;
 
+        // Fill in who is current user
+        curr_user = current_user;
+
         // Populate list with users to rate
         getUsers();
         list = new JList<>(users.toArray());
@@ -35,9 +38,6 @@ public class Rate {
         scroll.setBounds(50, 25, 300, 50);
 
         frame.add(scroll);
-
-        // Fill in who is current user
-        curr_user = current_user;
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(null);
@@ -130,17 +130,15 @@ public class Rate {
                 int user_location = list.getSelectedIndex();
                 DatabaseConnection conn;
                 ArrayList<ArrayList<String>> result;
-                float avgRating;
                 float oldRating;
                 int total_ratings = 0;
                 if(rating == 0){
                     JOptionPane.showMessageDialog(frame, "Select a rating from 1 - 5");
                 }
                 conn = new DatabaseConnection();
-                avgRating = rating;
 
                 result = conn.retrieveQuery("SELECT rating,total_ratings FROM USER WHERE user_id=" + user_info.get(user_location).get(0));
-                oldRating = Integer.parseInt(result.get(0).get(0));
+                oldRating = Float.parseFloat(result.get(0).get(0));
                 total_ratings = Integer.parseInt(result.get(0).get(1));
                 // Update rating to new average rating if there was previous ratings
                 if (oldRating != -1){
