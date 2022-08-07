@@ -18,7 +18,7 @@ public class Rate {
         JButton btnRate3 = new JButton(star);
         JButton btnRate4 = new JButton(star);
         JButton btnRate5 = new JButton(star);
-        JLabel lblQuest =new JLabel("How would you like to rate your pervious sublet?");
+        JLabel lblQuest =new JLabel("How would you like to rate your previous sublet?");
         JLabel lblCurrent = new JLabel("Current rating: " + rating + "/5");
         JButton btnSubmit = new JButton("Submit");
         JTextField txtReview = new JTextField("(optional) Enter a review");
