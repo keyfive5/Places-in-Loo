@@ -24,7 +24,9 @@ To do this in Visual Studio Code, click on the project. Then click on any .java 
 
 Scroll down untill you see Reference Libraries. Click the plus sign icon and add the .jar file fouind in the **driver** folder of the project.
 
-To check if you completed the steps correctly, run the **ConnectionExample.java** file to see if you are getting an error.
+To check if you completed the steps correctly, run the **ConnectionExample.java** file to see if you are getting an error. You should get the following output from console if it is working properly.
+
+![image](https://user-images.githubusercontent.com/53016334/183272847-b69f0dcb-3a2d-4447-8d37-82b3e2170c6f.png)
 
 If you are receiving an error , follow the **Troubleshooting** section found at the end of this README
 
@@ -111,7 +113,9 @@ Cancel.java - The file that allows users to cancel their current sublet
 <br>
 User.java - The file that contains the User class and is used to pass data on the current user in the system
 <br>
-ConnectionExample.java
+ConnectionExample.java - Test file used to test the database connection. Important the database connection is working for other features to work. Not part of the actual implementation, just to make sure everything is working properly.
+<br>
+data.db - The main database that stores all the data related to the app
 
 
 # Troubleshooting
