@@ -130,34 +130,38 @@ public class Rate {
             // Adds a review to the user and updates the database
             @Override
             public void actionPerformed(ActionEvent e) {
-                int user_location = list.getSelectedIndex();
-                DatabaseConnection conn;
-                ArrayList<ArrayList<String>> result;
-                float oldRating;
-                int total_ratings = 0;
-                if(rating == 0){
-                    JOptionPane.showMessageDialog(frame, "Select a rating from 1 - 5");
+                try{
+                    int user_location = list.getSelectedIndex();
+                    DatabaseConnection conn;
+                    ArrayList<ArrayList<String>> result;
+                    float oldRating;
+                    int total_ratings = 0;
+                    if(rating == 0){
+                        JOptionPane.showMessageDialog(frame, "Select a rating from 1 - 5");
+                    }
+                    conn = new DatabaseConnection();
+    
+                    result = conn.retrieveQuery("SELECT rating,total_ratings FROM USER WHERE user_id=" + user_info.get(user_location).get(0));
+                    oldRating = Float.parseFloat(result.get(0).get(0));
+                    total_ratings = Integer.parseInt(result.get(0).get(1));
+                    // Update rating to new average rating if there was previous ratings
+                    if (oldRating != -1){
+                        rating = ((oldRating * total_ratings) + rating) / (total_ratings + 1);
+                    }
+                    total_ratings += 1;
+    
+                    // Update query to change rating in database
+                    conn.updateQuery("UPDATE USER SET rating = " + rating + ", total_ratings = " + total_ratings +
+                         " WHERE user_id=" + user_info.get(user_location).get(0));
+    
+                    JOptionPane.showMessageDialog(frame, "Rating successful!");
+    
+                    // Return to Main Menu
+                    frame.dispose();
+                    MainMenu Menu = new MainMenu(curr_user);
+                } catch (ArrayIndexOutOfBoundsException exception){
+                    JOptionPane.showMessageDialog(frame, "You did not select a posting.");
                 }
-                conn = new DatabaseConnection();
-
-                result = conn.retrieveQuery("SELECT rating,total_ratings FROM USER WHERE user_id=" + user_info.get(user_location).get(0));
-                oldRating = Float.parseFloat(result.get(0).get(0));
-                total_ratings = Integer.parseInt(result.get(0).get(1));
-                // Update rating to new average rating if there was previous ratings
-                if (oldRating != -1){
-                    rating = ((oldRating * total_ratings) + rating) / (total_ratings + 1);
-                }
-                total_ratings += 1;
-
-                // Update query to change rating in database
-                conn.updateQuery("UPDATE USER SET rating = " + rating + ", total_ratings = " + total_ratings +
-                     " WHERE user_id=" + user_info.get(user_location).get(0));
-
-                JOptionPane.showMessageDialog(frame, "Rating successful!");
-
-                // Return to Main Menu
-                frame.dispose();
-                MainMenu Menu = new MainMenu(curr_user);
 
             }
         });

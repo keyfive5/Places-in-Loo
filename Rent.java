@@ -69,80 +69,85 @@ public class Rent extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == get_post){
-            int post_location = list.getSelectedIndex();
-            DatabaseConnection connection = new DatabaseConnection();
-            ArrayList<ArrayList<String>> result;
-            String rating;
-
-            // Create all the labels and textboxes
-            post_title.setText(rentals.get(post_location));
-            post_title.setBounds(50, 100, 1000, 100);
-            post_title.setFont(new Font("Verdana", Font.PLAIN, 20));;
-            post_title.setHorizontalAlignment(JLabel.LEADING);
-            frame.add(post_title);
-
-            post_start.setText("Start: " + rental_info.get(post_location).get(5));
-            post_start.setBounds(50, 120, 1000, 100);
-            post_start.setFont(new Font(null,Font.PLAIN,12));
-            frame.add(post_start);
-
-            post_end.setText("End: " + rental_info.get(post_location).get(6));
-            post_end.setBounds(200, 120, 1000, 100);
-            post_end.setFont(new Font(null,Font.PLAIN,12));
-            frame.add(post_end);
-
-            post_price.setText("Price per month: " + rental_info.get(post_location).get(7));
-            post_price.setBounds(50, 137, 1000, 100);
-            post_price.setFont(new Font(null,Font.PLAIN,15));
-            frame.add(post_price);
-
-            post_desc.setText("<html><b>Description: </b><br>" + rental_info.get(post_location).get(9)+"</htm>");
-            post_desc.setBounds(50, 175, 1000, 100);
-            post_desc.setFont(new Font(null,Font.PLAIN,15));
-            frame.add(post_desc);
-
-            post_sublessor.setText("Sublessor: " + rental_info.get(post_location).get(3) + ", " + rental_info.get(post_location).get(2));
-            post_sublessor.setBounds(50, 220, 1000, 100);
-            post_sublessor.setFont(new Font(null,Font.PLAIN,15));
-            frame.add(post_sublessor);
-
-            post_contact.setText("Contact: " + rental_info.get(post_location).get(4));
-            post_contact.setBounds(50, 240, 1000, 100);
-            post_contact.setFont(new Font(null,Font.PLAIN,15));
-            frame.add(post_contact);
-            
-            // Get posting users rating
-            result = connection.retrieveQuery("SELECT rating FROM USER WHERE user_id=" + rental_info.get(post_location).get(1));
-            rating = result.get(0).get(0);
-            // If there is no rating, print "No ratings yet"
-            if (rating.equals("-1")){
-                rating = "No ratings yet";
-            }
-
-            post_rating.setText("Rating: " + rating);
-            post_rating.setBounds(50, 260, 1000, 100);
-            post_rating.setFont(new Font(null,Font.PLAIN,15));
-            frame.add(post_rating);
-
-            rent.setBounds(200, 340, 100, 20);
-            rent.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    DatabaseConnection connection = new DatabaseConnection();
-                    Boolean update = connection.updateQuery("UPDATE POSTS SET available=false WHERE post_id="+rental_info.get(post_location).get(0)+";");
-
-                    if(update){
-                        JOptionPane.showMessageDialog(frame, "Sublet is now pending.\nPlease contact the sublessor to confirm the sublet");
-                        // Return to Main Menu
-                        frame.dispose();
-                        MainMenu Menu = new MainMenu(curr_user);
-                    } else{
-                        JOptionPane.showMessageDialog(frame, "An Error has occured!\nPlease try again or contact support.");
-                    }
+            // Error check to see if posting selected
+            try{
+                int post_location = list.getSelectedIndex();
+                DatabaseConnection connection = new DatabaseConnection();
+                ArrayList<ArrayList<String>> result;
+                String rating;
+    
+                // Create labels to display information
+                post_title.setText(rentals.get(post_location));
+                post_title.setBounds(50, 100, 1000, 100);
+                post_title.setFont(new Font("Verdana", Font.PLAIN, 20));;
+                post_title.setHorizontalAlignment(JLabel.LEADING);
+                frame.add(post_title);
+    
+                post_start.setText("Start: " + rental_info.get(post_location).get(5));
+                post_start.setBounds(50, 120, 1000, 100);
+                post_start.setFont(new Font(null,Font.PLAIN,12));
+                frame.add(post_start);
+    
+                post_end.setText("End: " + rental_info.get(post_location).get(6));
+                post_end.setBounds(200, 120, 1000, 100);
+                post_end.setFont(new Font(null,Font.PLAIN,12));
+                frame.add(post_end);
+    
+                post_price.setText("Price per month: " + rental_info.get(post_location).get(7));
+                post_price.setBounds(50, 137, 1000, 100);
+                post_price.setFont(new Font(null,Font.PLAIN,15));
+                frame.add(post_price);
+    
+                post_desc.setText("<html><b>Description: </b><br>" + rental_info.get(post_location).get(9)+"</htm>");
+                post_desc.setBounds(50, 175, 1000, 100);
+                post_desc.setFont(new Font(null,Font.PLAIN,15));
+                frame.add(post_desc);
+    
+                post_sublessor.setText("Sublessor: " + rental_info.get(post_location).get(3) + ", " + rental_info.get(post_location).get(2));
+                post_sublessor.setBounds(50, 220, 1000, 100);
+                post_sublessor.setFont(new Font(null,Font.PLAIN,15));
+                frame.add(post_sublessor);
+    
+                post_contact.setText("Contact: " + rental_info.get(post_location).get(4));
+                post_contact.setBounds(50, 240, 1000, 100);
+                post_contact.setFont(new Font(null,Font.PLAIN,15));
+                frame.add(post_contact);
+                
+                // Get posting users rating
+                result = connection.retrieveQuery("SELECT rating FROM USER WHERE user_id=" + rental_info.get(post_location).get(1));
+                rating = result.get(0).get(0);
+                // If there is no rating, print "No ratings yet"
+                if (rating.equals("-1")){
+                    rating = "No ratings yet";
                 }
-            });
-            frame.add(rent);
+    
+                post_rating.setText("Rating: " + rating);
+                post_rating.setBounds(50, 260, 1000, 100);
+                post_rating.setFont(new Font(null,Font.PLAIN,15));
+                frame.add(post_rating);
+    
+                rent.setBounds(200, 340, 100, 20);
+                rent.addActionListener(new ActionListener() {
+    
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        DatabaseConnection connection = new DatabaseConnection();
+                        Boolean update = connection.updateQuery("UPDATE POSTS SET available=false WHERE post_id="+rental_info.get(post_location).get(0)+";");
+    
+                        if(update){
+                            JOptionPane.showMessageDialog(frame, "Sublet is now pending.\nPlease contact the sublessor to confirm the sublet");
+                            // Return to Main Menu
+                            frame.dispose();
+                            MainMenu Menu = new MainMenu(curr_user);
+                        } else{
+                            JOptionPane.showMessageDialog(frame, "An Error has occured!\nPlease try again or contact support.");
+                        }
+                    }
+                });
+                frame.add(rent);
+            } catch (ArrayIndexOutOfBoundsException exception){
+                JOptionPane.showMessageDialog(frame, "You did not select a posting.");
+            }
         }
   
        

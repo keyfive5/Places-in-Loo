@@ -49,14 +49,18 @@ public class Cancel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                int post_location = list.getSelectedIndex();
-                DatabaseConnection connection = new DatabaseConnection();
-                connection.updateQuery("UPDATE POSTS SET available=false WHERE post_id="+posts_info.get(post_location).get(0)+";");
-                JOptionPane.showMessageDialog(frame, "Your sublet has been canceled.");
-
-                // Return to Main Menu
-                frame.dispose();
-                MainMenu Menu = new MainMenu(curr_user);
+                // Error handling for when no posting selected
+                try{
+                    int post_location = list.getSelectedIndex();
+                    DatabaseConnection connection = new DatabaseConnection();
+                    connection.updateQuery("UPDATE POSTS SET available=false WHERE post_id="+posts_info.get(post_location).get(0)+";");
+                    JOptionPane.showMessageDialog(frame, "Your sublet has been canceled.");
+                    // Return to Main Menu
+                    frame.dispose();
+                    MainMenu Menu = new MainMenu(curr_user);
+                } catch (ArrayIndexOutOfBoundsException exception){
+                    JOptionPane.showMessageDialog(frame, "You did not select a posting to cancel.");
+                }
             }
         });
         
