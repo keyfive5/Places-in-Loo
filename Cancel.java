@@ -32,6 +32,10 @@ public class Cancel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(frame, "Your sublet has been canceled.");
+
+                // Return to Main menu
+                frame.dispose();
+                MainMenu Menu = new MainMenu(curr_user);
             }
         });
         
