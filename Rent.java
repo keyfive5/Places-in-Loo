@@ -68,6 +68,7 @@ public class Rent extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
+        // Action when "Get Post" button pressed
         if(e.getSource() == get_post){
             // Error check to see if posting selected
             try{
@@ -129,6 +130,7 @@ public class Rent extends JFrame implements ActionListener{
                 rent.setBounds(200, 340, 100, 20);
                 rent.addActionListener(new ActionListener() {
     
+                    // Action when "Rent" button pressed
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         DatabaseConnection connection = new DatabaseConnection();

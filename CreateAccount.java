@@ -90,6 +90,7 @@ public class CreateAccount extends JFrame {
 
         // Buttons
         submit_btn = new JButton("Submit");
+        // Add Listener to Create an account and update the database
         submit_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -121,6 +122,7 @@ public class CreateAccount extends JFrame {
                     }
                 }
 
+                // Update database with new account
                 String query = String.format("INSERT INTO USER VALUES(%s,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",
                         null,username.getText(),password.getText(),email.getText(),first_name.getText(),last_name.getText(),
                         gender.getText(),campus.getText(),date_of_birth.getText(),-1,0);
@@ -133,20 +135,23 @@ public class CreateAccount extends JFrame {
                 LoginGUI.call_login_gui();
             }
         });
+        // Back button the Login page
         back_btn = new JButton("Back");
         back_btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Go back to Login page
                 frame.dispose();
                 LoginGUI.call_login_gui();
             }
         });
         submit_btn.setBounds(220,400,220,40);
         back_btn.setBounds(10,400,220,40);
+
+        // Add buttons to frame
         frame.add(submit_btn);
         frame.add(back_btn);
 
+        // Set frame properties
         frame.getContentPane().setBackground(new Color(173, 216, 230));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Places in 'Loo - Create Account");

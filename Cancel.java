@@ -64,11 +64,13 @@ public class Cancel {
             }
         });
         
+        // Add objects to frame
         frame.add(label);
         frame.add(cancel_btn);
         frame.add(scroll);
         frame.add(home_btn);  
         
+        // Set properties of the frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(new Color(173, 216, 230));
         frame.setSize(420,420);
@@ -78,6 +80,7 @@ public class Cancel {
         return;
     }
 
+    // Retrieve the postings
     private void getPostings(){
         DatabaseConnection connection = new DatabaseConnection();
         posts_info = connection.retrieveQuery("SELECT post_id,location FROM POSTS WHERE available=true and user_id = " + curr_user.getUserId());

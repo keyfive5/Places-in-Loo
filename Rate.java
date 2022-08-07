@@ -39,6 +39,7 @@ public class Rate {
 
         frame.add(scroll);
 
+        // Setting panel properties
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(null);
         panel.setBackground(new Color(173, 216, 230));
@@ -168,6 +169,7 @@ public class Rate {
         });
         panel.add(btnSubmit);
 
+        // Setting frame properties
         frame.add(panel,BorderLayout.CENTER);
         frame.setSize(420,420);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -175,6 +177,7 @@ public class Rate {
         frame.setVisible(true);
     }
 
+    // Retrieve Users to be rated
     private void getUsers(){
         DatabaseConnection connection = new DatabaseConnection();
         user_info = connection.retrieveQuery("SELECT DISTINCT user_id, first_name, last_name FROM POSTS WHERE NOT user_id = " +

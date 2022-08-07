@@ -77,6 +77,7 @@ public class DatabaseConnection {
         }
     }
 
+    // Helper function to connect to the database
     private Connection create_connection(){
         Connection conn = null;
         try{
@@ -90,6 +91,7 @@ public class DatabaseConnection {
         }
     }
 
+    // Helper function to close the connection to the database
     private void close_connection(Connection conn){
         try{
             if (conn != null) {

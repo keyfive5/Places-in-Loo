@@ -36,6 +36,7 @@ public class NewPost {
         });
         frame.add(home_btn);
 
+        // Generate labels and textfileds
         title.setBounds(125,10,1000,50);
         title.setFont(new Font(null,Font.PLAIN,25));
 
@@ -62,6 +63,7 @@ public class NewPost {
         description_txt.setBounds(120,170,210,100);
 
         submit_btn.setBounds(230,280,100,40);
+        // Create Listener to insert new Post
         submit_btn.addActionListener(new ActionListener() {
 
             @Override
@@ -121,6 +123,7 @@ public class NewPost {
         NewPost post = new NewPost(new User());
     }
 
+    // Check if a number is a valid integer
     private static boolean isNumeric(String string) {
         int intValue;
                
