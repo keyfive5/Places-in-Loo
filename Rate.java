@@ -147,16 +147,16 @@ public class Rate {
                 }
                 total_ratings += 1;
 
+                // Update query to change rating in database
                 conn.updateQuery("UPDATE USER SET rating = " + rating + ", total_ratings = " + total_ratings +
                      " WHERE user_id=" + user_info.get(user_location).get(0));
 
                 JOptionPane.showMessageDialog(frame, "Rating successful!");
 
-                if (new String("(optional) Enter a review").equals(txtReview.getText())){
-                    return;
-                } else {
-                    System.out.printf(txtReview.getText());
-                }
+                // Return to Main Menu
+                frame.dispose();
+                MainMenu Menu = new MainMenu(curr_user);
+
             }
         });
         panel.add(btnSubmit);

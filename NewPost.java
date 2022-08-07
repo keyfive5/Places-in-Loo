@@ -87,10 +87,12 @@ public class NewPost {
 
                 connection.updateQuery(query);
                 JOptionPane.showMessageDialog(frame, "Sublet successfully posted.");
+
+                // Return to Main Menu
+                frame.dispose();
+                MainMenu Menu = new MainMenu(curr_user);
             }
         });
-
-
             
         frame.add(title);
         frame.add(location);
