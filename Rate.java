@@ -22,21 +22,22 @@ public class Rate {
         JLabel lblCurrent = new JLabel("Current rating: " + rating + "/5");
         JButton btnSubmit = new JButton("Submit");
         JTextField txtReview = new JTextField("(optional) Enter a review");
-
-        // Fill in who is current user
-        curr_user = current_user;
+        JFrame frame = new JFrame();
+        JPanel panel = new JPanel();
+        JList list;
+        JScrollPane scroll;
 
         // Populate list with users to rate
         getUsers();
-        JList list = new JList<>(users.toArray());
-        JScrollPane scroll = new JScrollPane(list);
+        list = new JList<>(users.toArray());
+        scroll = new JScrollPane(list);
         list.setBounds(50, 25, 300, 50);
         scroll.setBounds(50, 25, 300, 50);
 
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-
         frame.add(scroll);
+
+        // Fill in who is current user
+        curr_user = current_user;
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(null);
