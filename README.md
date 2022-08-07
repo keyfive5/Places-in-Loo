@@ -36,16 +36,20 @@ To run the app, run the **Start.java** file by either right clicking the Start.j
   - Email validation
   - Unique username
 - Login 
+  - Credential Validation
+- Post a sublet
+- Rent a sublet
+  - Cannot see your own sublets
+  - Can see the ratings of a user who is subletting
+- Cancel a sublet
+  - Can only see your own sublets
+- Rate a sublet
+  - Cannot rate yourself
+  - Calculates and updates average rating of a user
+
 
 # External tools used
 SQLite JDBC connector (located in the driver folder)
-
-# To-do
-- Add comments
-- Keep track of current user
-- Cancel sublet, allow to view postings
-- Add ratings when viewing posting
-- Add rating to user
 
 # Changed features from SDD
 During our implementation, we noticed some details from the SDD were not practical and have made the following changes:
@@ -79,7 +83,9 @@ Rate.java - The file that allows users to rate their previous sublet accomodatio
 <br>
 Cancel.java - The file that allows users to cancel their current sublet
 <br>
-User.java - The file that contains the User class and deals with the back-end
+User.java - The file that contains the User class and is used to pass data on the current user in the system
+<br>
+ConnectionExample.java
 
 
 # Troubleshooting
