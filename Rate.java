@@ -130,6 +130,7 @@ public class Rate {
             // Adds a review to the user and updates the database
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Error checking for selected person
                 try{
                     int user_location = list.getSelectedIndex();
                     DatabaseConnection conn;
@@ -160,7 +161,7 @@ public class Rate {
                     frame.dispose();
                     MainMenu Menu = new MainMenu(curr_user);
                 } catch (ArrayIndexOutOfBoundsException exception){
-                    JOptionPane.showMessageDialog(frame, "You did not select a posting.");
+                    JOptionPane.showMessageDialog(frame, "You did not select a person to rate.");
                 }
 
             }
