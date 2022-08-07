@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class User {
+    // Private variables
     private int user_id;
     private String username;
     private String password;
@@ -13,10 +14,22 @@ public class User {
     private float rating;
     private int total_ratings;
 
+    // Default constructor for testing
     public User(){
-        
+        this.user_id = 0;
+        this.username = "";
+        this.password = "";
+        this.email = "";
+        this.first_name = "";
+        this.last_name = "";
+        this.gender = "";
+        this.campus = "";
+        this.date_of_birth = "";
+        this.rating = -1;
+        this.total_ratings = 0;
     }
 
+    // Constructor for all fields
     public User(int user_id,String username, String password, String email, String first_name, String last_name, 
         String gender, String campus, String date_of_birth, float rating, int total_ratings){
             this.user_id = user_id;
@@ -49,6 +62,7 @@ public class User {
         }
     }
 
+    // Get methods for all private variables
     public int getUserId(){
         return this.user_id;
     }

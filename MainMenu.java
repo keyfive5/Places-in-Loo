@@ -91,7 +91,7 @@ public class MainMenu extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        //MainMenu Menu = new MainMenu(curr_user);
+        MainMenu Menu = new MainMenu(new User());
     }
 
 }

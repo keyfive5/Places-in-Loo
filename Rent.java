@@ -54,6 +54,7 @@ public class Rent extends JFrame implements ActionListener{
         get_post.addActionListener(this);
         post_title.setBounds(200, 200, 100, 100);
        
+        // Add all the objects to the frame
         frame.add(title);
         frame.add(scroll);
         frame.add(get_post);
@@ -73,6 +74,7 @@ public class Rent extends JFrame implements ActionListener{
             ArrayList<ArrayList<String>> result;
             String rating;
 
+            // Create all the labels and textboxes
             post_title.setText(rentals.get(post_location));
             post_title.setBounds(50, 100, 1000, 100);
             post_title.setFont(new Font("Verdana", Font.PLAIN, 20));;

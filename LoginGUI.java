@@ -20,7 +20,7 @@ public class LoginGUI extends JFrame {
         JLabel password_label = new JLabel("Password");
         tfpassword = new JPasswordField();
 
-        // Panel 2 is for the buttons and text fields
+        // Panel contents is for the buttons and text fields
         JPanel panel_contents = new JPanel();
         panel_contents.setLayout(new GridLayout(4, 1, 5, 5));
         panel_contents.setBackground(new Color(173, 216, 230));
@@ -42,7 +42,6 @@ public class LoginGUI extends JFrame {
             // This is what happens when Login is pressed
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
                 String user = tfusername.getText();
                 String pass = tfpassword.getText();    
 

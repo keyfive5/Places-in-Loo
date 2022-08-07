@@ -61,6 +61,8 @@ public class Rate {
         lblQuest.setFont(new Font(null,Font.PLAIN,15));
         panel.add(lblQuest);
 
+
+        // btnRate 1 - 5 is all the individual stars for rating a user
         btnRate1.setBounds(80,110,32,32);
         btnRate1.addActionListener(new ActionListener() {
 

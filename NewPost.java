@@ -96,6 +96,7 @@ public class NewPost {
             }
         });
             
+        // Adding all the objects to the frame
         frame.add(title);
         frame.add(location);
         frame.add(startDate);
