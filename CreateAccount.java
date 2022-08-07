@@ -129,8 +129,8 @@ public class CreateAccount extends JFrame {
                 JOptionPane.showMessageDialog(frame, "Account successfully created");
 
                 // Go back to Login page
+                frame.dispose();
                 LoginGUI.call_login_gui();
-                setVisible(false);
             }
         });
         back_btn = new JButton("Back");
@@ -138,8 +138,8 @@ public class CreateAccount extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Go back to Login page
+                frame.dispose();
                 LoginGUI.call_login_gui();
-                setVisible(false);
             }
         });
         submit_btn.setBounds(220,400,220,40);
