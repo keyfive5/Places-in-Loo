@@ -1,7 +1,42 @@
 # Places-in-Loo
 Hasan (MZ), Kabir, Shahyan (MK), Faisal (MN), Jack, Jackson, Nabeel, Wrenen
 
+---
+
+## 🌐 Live Web App (2026 edition)
+
+**▶️ Try it now — no install required: https://keyfive5.github.io/Places-in-Loo/**
+
+The original 2022 project (documented below) was a **Java + SQLite desktop app** that had
+to be run from Visual Studio Code. Years later, **Hasan Zafar** rebuilt it as a modern,
+responsive **web application** so anyone can use it instantly from a browser, on any
+device, with nothing to install — and it's hosted for free on GitHub Pages so it's
+always online.
+
+The web edition faithfully re-creates every original feature and adds the pieces the team
+ran out of time for:
+
+- ✅ **Create account & login** — same `mylaurier` / `uwaterloo` email rule as the original
+- ✅ **Post, browse, rent & cancel sublets** — with search, filters and sorting (new)
+- ✅ **Rate hosts** — 1–5 stars with live average recalculation
+- ✅ **💬 Direct messaging** — the feature listed under *"Removed Features"* in 2022, now fully working
+- ✅ **Modern, mobile-friendly UI** and a live demo account (`caix3600` / `password`)
+
+All of the original team's data (accounts and the first King Street listing) is preserved
+as demo content to honour the group's work. The source for the web edition lives in the
+[`docs/`](docs/) folder; **none of the original Java code was changed.**
+
+> **Credits:** Original desktop application by the 2022 team (Nabeel Shahyan, Faisal
+> Jackson, Jack Wrenen, Kabir Zafar & friends). Modern web edition designed and built by
+> **Hasan Zafar (2026)**.
+
+---
+
 # Installation
+
+> The steps below are the **original instructions for the 2022 Java desktop version** and
+> are kept intact for reference. For the web version, just open the live link above.
+
 Pre-requisites:
 This application was mainly developed using Visual Studio Code (tested primarily on Windows), and some functions may not work without it.
 It can be downloaded here: https://code.visualstudio.com/download
