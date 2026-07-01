@@ -1,0 +1,49 @@
+name: Deploy web edition to GitHub Pages
+
+# Publishes the browser-based web app in docs/ to GitHub Pages.
+# This keeps https://keyfive5.github.io/Places-in-Loo/ always online for free.
+# The original 2022 Java desktop app in the repo root is untouched.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        # enablement: true turns Pages on automatically the first time this runs,
+        # so no manual settings toggle is required.
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload site (docs/)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
